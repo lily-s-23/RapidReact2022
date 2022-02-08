@@ -6,16 +6,12 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
-import frc.robot.RobotContainer;
-import frc.robot.subsystems.DriveSubsystem;
-
 
 public class DriveCommand extends CommandBase {
   /** Creates a new DriveCommand. */
   public DriveCommand() {
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(RobotContainer.driveSubsystem);
-
+    addRequirements(Robot.DriveSubsystem);
   }
 
   // Called when the command is initially scheduled.
@@ -25,7 +21,7 @@ public class DriveCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    RobotContainer.driveSubsystem.ArcadeDrive(RobotContainer.getSpeed(), getTurn());
+    Robot.DriveSubsystem.ArcadeDrive(Robot.OI.getSpeed(), Robot.OI.getTurn());
   }
 
   // Called once the command ends or is interrupted.

@@ -5,6 +5,7 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import com.revrobotics.RelativeEncoder;
@@ -12,22 +13,21 @@ import com.revrobotics.SparkMaxPIDController;
 
 public class DriveSubsystem extends SubsystemBase {
   /** Creates a new DriveSubsystem. */
-  CANSparkMax L1motor;
-  RelativeEncoder L1encoder;
-  SparkMaxPIDController L1controller;
+    CANSparkMax L1motor;
+    RelativeEncoder L1encoder;
+    SparkMaxPIDController L1controller;
 
-  CANSparkMax L2motor;
-  RelativeEncoder L2encoder;
-  SparkMaxPIDController L2controller;
+    CANSparkMax L2motor;
+    RelativeEncoder L2encoder;
+    SparkMaxPIDController L2controller;
 
-  CANSparkMax R1motor;
-  RelativeEncoder R1encoder;
-  SparkMaxPIDController R1controller;
+    CANSparkMax R1motor;
+    RelativeEncoder R1encoder;
+    SparkMaxPIDController R1controller;
 
-  CANSparkMax R2motor;
-  RelativeEncoder R2encoder;
-  SparkMaxPIDController R2controller;
-
+    CANSparkMax R2motor;
+    RelativeEncoder R2encoder;
+    SparkMaxPIDController R2controller;
 
   public DriveSubsystem() {
     L1motor = new CANSparkMax(0, MotorType.kBrushless);
@@ -47,7 +47,6 @@ public class DriveSubsystem extends SubsystemBase {
     R2controller = R2motor.getPIDController();
   }
 
-  
   public void TankDrive(double left, double right) {
     L1motor.set(left);
     L2motor.set(left);
@@ -55,11 +54,7 @@ public class DriveSubsystem extends SubsystemBase {
     R2motor.set(right);
   }
 
-  
   public void ArcadeDrive(double speed, double turn) {
-   TankDrive(speed - turn, speed + turn);
+    TankDrive(speed - turn, speed + turn);
   }
-
-
-
 }
