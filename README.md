@@ -1,2 +1,2 @@
-# Live-Robot-Lesson-Imported
- Live lesson folder used during programming training sessions with 2022 WPILib VSCode
+# Rapid React 2022
+Code for 1374's 2022 Robot
