@@ -32,10 +32,7 @@ public class Robot extends TimedRobot {
   private static final String kCustomAuto = "My Auto";
   private String m_autoSelected;
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
-  private final DifferentialDrive m_robotdrive = 
-      new DifferentialDrive(new Talon(0), new Talon(1));
-  private final Joystick m_stick = new Joystick(0);
-  private final Timer m_timer = new Timer();
+  // private final Timer m_timer = new Timer();
   public static OI OI = new OI();
   public static DriveSubsystem DriveSubsystem = new DriveSubsystem();
   public static DriveCommand DriveCommand = new DriveCommand();
