@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.buttons.Trigger;
 import frc.robot.commands.ConveyorBeltCommand;
+import frc.robot.commands.DriveCommand;
 import edu.wpi.first.wpilibj.GenericHID;
 
 
@@ -25,7 +26,8 @@ public class OI {
     AButton = new JoystickButton(driver, 1);
 
 
-    AButton.whenPressed(new ConveyorBeltCommand());
+    AButton.whileHeld(new ConveyorBeltCommand());
+
   }
 
 
