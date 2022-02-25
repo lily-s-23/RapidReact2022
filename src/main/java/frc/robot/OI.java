@@ -6,6 +6,9 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.buttons.Trigger;
+import frc.robot.commands.ConveyorBeltCommand;
+import frc.robot.commands.DriveCommand;
 import edu.wpi.first.wpilibj.GenericHID;
 
 
@@ -18,7 +21,15 @@ public class OI {
   /** Creates a new OI. */
   public OI() {
     driver = new XboxController(0);
+
+    //eed edit: 1
+    AButton = new JoystickButton(driver, 1);
+
+
+    AButton.whileHeld(new ConveyorBeltCommand());
+
   }
+
 
   // method that takes speed to go forwards or backwards from bumpers of controller depending on how hard driver presses
   public double getSpeed() {
@@ -37,4 +48,6 @@ public class OI {
     }
     return turn * turn * (turn/Math.abs(turn));
   }
+
+  //method that takes speed for conveyor belt from second controller triggers
 }
