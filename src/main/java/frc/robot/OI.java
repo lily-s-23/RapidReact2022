@@ -22,11 +22,19 @@ public class OI {
 
   // method that takes speed to go forwards or backwards from bumpers of controller depending on how hard driver presses
   public double getSpeed() {
-    return driver.getLeftTriggerAxis() - driver.getRightTriggerAxis();
+    double speed  = driver.getLeftTriggerAxis() - driver.getRightTriggerAxis();
+    if (Math.abs(speed) < 0.05) {
+      speed = 0;
+    }
+    return speed * speed * (speed / Math.abs(speed));
   }
 
   // method that allows for joystick control to determine turns to left/right
   public double getTurn() {
-    return driver.getRawAxis(0);
+    double turn = driver.getRawAxis(0);
+    if (Math.abs(turn) < 0.05) {
+      turn = 0;
+    }
+    return turn * turn * (turn/Math.abs(turn));
   }
 }
