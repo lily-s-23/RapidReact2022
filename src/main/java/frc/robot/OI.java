@@ -26,7 +26,11 @@ public class OI {
     AButton = new JoystickButton(driver, 1);
 
 
-    AButton.whileHeld(new ConveyorBeltCommand());
+    //need edit: 100, 1
+    
+    AButton.whenPressed(new ConveyorBeltCommand(100));
+    AButton.whenReleased(new ConveyorBeltCommand(0));
+    
 
   }
 
