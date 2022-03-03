@@ -11,12 +11,13 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Robot;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 
 public class IntakeSubsystem extends SubsystemBase {
      // Put methods for controlling this subsystem
     // here. Call these from Commands.
-    public DoubleSolenoid intakeArm=  new DoubleSolenoid(3,5);
+    public DoubleSolenoid intakeArm=  new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 3, 5);
  
     CANSparkMax intakeClose = new CANSparkMax(9, MotorType.kBrushless);
     CANSparkMax intakeFar = new CANSparkMax(15, MotorType.kBrushless);

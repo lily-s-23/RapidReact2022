@@ -17,7 +17,7 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.commands.DriveCommand;
 import frc.robot.subsystems.ConveyorBeltSubsystem;
-import frc.robot.commands.ConveyorBeltCommand;
+import frc.robot.commands.ConveyorBeltCommandFoward;
 // import frc.robot.commands.ClimberCommand;
 // import frc.robot.subsystems.ClimberSubsystem;
 
@@ -40,7 +40,7 @@ public class Robot extends TimedRobot {
   public static DriveCommand DriveCommand = new DriveCommand();
   CommandScheduler commandScheduler = CommandScheduler.getInstance();
   public static ConveyorBeltSubsystem ConveyorBeltSubsystem = new ConveyorBeltSubsystem();
-  public static ConveyorBeltCommand ConveyorBeltCommand = new ConveyorBeltCommand();
+  public static ConveyorBeltCommandFoward ConveyorBeltCommand = new ConveyorBeltCommandFoward();
 
 
 

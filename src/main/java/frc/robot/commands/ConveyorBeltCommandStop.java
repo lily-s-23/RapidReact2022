@@ -7,14 +7,14 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
 
-public class ConveyorBeltCommand extends CommandBase {
+public class ConveyorBeltCommandStop extends CommandBase {
 double speed;
 
   /** Creates a new ConveyorBeltCommand. */
-  public ConveyorBeltCommand(double speed) {
+  public ConveyorBeltCommandStop() {
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(Robot.ConveyorBeltSubsystem);
-    this.speed = speed;
+    this.speed = 0;
   }
 
   // Called when the command is initially scheduled.
