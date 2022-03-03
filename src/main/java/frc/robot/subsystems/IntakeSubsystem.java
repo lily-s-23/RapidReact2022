@@ -4,39 +4,37 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.PneumaticsModuleType;
+
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import com.revrobotics.RelativeEncoder;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Robot;
 
-import edu.wpi.first.wpilibj.DoubleSolenoid;
-import edu.wpi.first.wpilibj.PneumaticsModuleType;
-import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
+//import edu.wpi.first.wpilib.DoubleSolenoid;
+//import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 
 public class IntakeSubsystem extends SubsystemBase {
      // Put methods for controlling this subsystem
     // here. Call these from Commands.
     public DoubleSolenoid intakeArm=  new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 3, 5);
- 
-    CANSparkMax intakeClose = new CANSparkMax(9, MotorType.kBrushless);
-    CANSparkMax intakeFar = new CANSparkMax(15, MotorType.kBrushless);
-    /*
-    @Override
-    public void initDefaultCommand() {
-        intakeArm.set(Value.kForward);
-        // Set the default command for a subsystem here.
-        // setDefaultCommand(new MySpecialCommand());
-    }
-    */
+    
 
-    public void closeIntakeSpin(double speed){
-        // intakeClose.set(ControlMode.PercentOutput, speed);
-        intakeClose.set(speed);
+    //need edit: 0, 0
+
+    CANSparkMax intakeClose = new CANSparkMax(0, MotorType.kBrushless);
+    CANSparkMax intakeFar = new CANSparkMax(0, MotorType.kBrushless);
+
+    //@Override
+    public void intakeInitialize() {
+        //intakeArm.set(Value.kForward);;
     }
-    public void farIntakeSpin(double speed){
-        // intakeFar.set(ControlMode.PercentOutput, speed);
+
+
+    public void intakeSpin(double speed){
+        intakeClose.set(speed);
         intakeFar.set(speed);
     }
-
 }

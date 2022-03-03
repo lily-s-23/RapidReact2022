@@ -25,7 +25,6 @@ double speed;
   @Override
   public void execute() {
     Robot.ConveyorBeltSubsystem.setMotorSpeed(speed);
-
   }
 
   // Called once the command ends or is interrupted.
