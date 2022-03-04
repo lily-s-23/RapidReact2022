@@ -6,10 +6,9 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-import frc.robot.commands.ConveyorBeltCommandFoward;
-import frc.robot.commands.ConveyorBeltCommandStop;
+/** import frc.robot.commands.ConveyorBeltCommand;
 import frc.robot.commands.DriveCommand;
-import edu.wpi.first.wpilibj.GenericHID;
+import edu.wpi.first.wpilibj.GenericHID;**/
 
 
 public class OI {
@@ -17,20 +16,17 @@ public class OI {
   public JoystickButton AButton;
   public JoystickButton BButton;
   public JoystickButton XButton;
+  
+  //operator
+  public XboxController operator;
+  public JoystickButton aButton;
+  public JoystickButton bButton;
+  public JoystickButton xButton;
 
   /** Creates a new OI. */
   public OI() {
     driver = new XboxController(0);
-
-    //eed edit: 1
-    AButton = new JoystickButton(driver, 1);
-
-
-    //need edit: 100, 1
-    
-    AButton.whenPressed(new ConveyorBeltCommandFoward());
-    AButton.whenReleased(new ConveyorBeltCommandStop());
-    
+    operator = new XboxController(1);
 
   }
 
@@ -54,4 +50,11 @@ public class OI {
   }
 
   //method that takes speed for conveyor belt from second controller triggers
+ /*public double getConveyorSpeed() {
+    double speed = operator.getLeftTriggerAxis() - driver.getRightTriggerAxis();
+    if (Math.abs(speed) < 0.05) {
+      speed = 0;
+    }
+    return speed * speed * (speed / Math.abs(speed));
+  }*/
 }
