@@ -41,7 +41,7 @@ public class OI {
     if (Math.abs(speed) < 0.05) {
       speed = 0;
     }
-    return speed * speed * (speed / Math.abs(speed));
+    return speed * Math.abs(speed);
   }
 
   // method that allows for joystick control to determine turns to left/right
@@ -50,7 +50,7 @@ public class OI {
     if (Math.abs(turn) < 0.05) {
       turn = 0;
     }
-    return turn * turn * (turn/Math.abs(turn));
+    return turn * Math.abs(turn);
   }
 
   //method that takes speed for conveyor belt from second controller triggers
