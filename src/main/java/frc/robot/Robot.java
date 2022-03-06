@@ -8,19 +8,21 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-/** import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-import edu.wpi.first.wpilibj.motorcontrol.Talon;**/
+import edu.wpi.first.wpilibj.motorcontrol.Talon;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 
 import frc.robot.subsystems.DriveSubsystem;
-import frc.robot.commands.ConveyorBeltCommandFoward;
-import frc.robot.commands.ConveyorBeltCommandStop;
 import frc.robot.commands.DriveCommand;
+
+import frc.robot.subsystems.IntakeSubsystem;
+import frc.robot.commands.IntakeCommand;
+
 import frc.robot.subsystems.ConveyorBeltSubsystem;
-// import frc.robot.commands.ClimberCommand;
-// import frc.robot.subsystems.ClimberSubsystem;
+import frc.robot.commands.ConveyorBeltCommandForward;
+import frc.robot.commands.ConveyorBeltCommandStop;
 
 
 
@@ -40,9 +42,13 @@ public class Robot extends TimedRobot {
   public static DriveSubsystem DriveSubsystem = new DriveSubsystem();
   public static DriveCommand DriveCommand = new DriveCommand();
   CommandScheduler commandScheduler = CommandScheduler.getInstance();
+
   public static ConveyorBeltSubsystem ConveyorBeltSubsystem = new ConveyorBeltSubsystem();
-  public static ConveyorBeltCommandFoward conveyorBeltCommandFoward = new ConveyorBeltCommandFoward();
-  public static ConveyorBeltCommandStop conveyorBeltCommandStop = new ConveyorBeltCommandStop();
+  public static ConveyorBeltCommandForward ConveyorBeltCommandForward = new ConveyorBeltCommandForward();
+  public static ConveyorBeltCommandStop ConveyorBeltCommandStop = new ConveyorBeltCommandStop();
+
+  public static IntakeSubsystem IntakeSubsystem = new IntakeSubsystem();
+  public static IntakeCommand IntakeCommand = new IntakeCommand();
 
 
 

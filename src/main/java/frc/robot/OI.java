@@ -6,9 +6,17 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-/** import frc.robot.commands.ConveyorBeltCommand;
+//import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj2.command.button.Trigger;
+import edu.wpi.first.wpilibj.GenericHID;
+
+//Importing Commands
 import frc.robot.commands.DriveCommand;
-import edu.wpi.first.wpilibj.GenericHID;**/
+import frc.robot.commands.ConveyorBeltCommandForward;
+import frc.robot.commands.ConveyorBeltCommandStop;
+import frc.robot.commands.IntakeCommand;
+
+
 
 
 public class OI {
@@ -16,45 +24,32 @@ public class OI {
   public JoystickButton AButton;
   public JoystickButton BButton;
   public JoystickButton XButton;
-  
-  //operator
-  public XboxController operator;
-  public JoystickButton aButton;
-  public JoystickButton bButton;
-  public JoystickButton xButton;
 
   /** Creates a new OI. */
   public OI() {
     driver = new XboxController(0);
-    operator = new XboxController(1);
+    //operator = new XboxController(1);
+
+    //Need edit: 1
+    AButton = new JoystickButton(driver, 1);
+
+
+
+    //AButton.whileHeld(new ConveyorBeltCommand());
+    //BButton.whileHeld(new IntakeCommand());
 
   }
 
 
   // method that takes speed to go forwards or backwards from bumpers of controller depending on how hard driver presses
   public double getSpeed() {
-    double speed  = driver.getLeftTriggerAxis() - driver.getRightTriggerAxis();
-    if (Math.abs(speed) < 0.05) {
-      speed = 0;
-    }
-    return speed * Math.abs(speed);
+    return driver.getLeftTriggerAxis() - driver.getRightTriggerAxis();
   }
 
   // method that allows for joystick control to determine turns to left/right
   public double getTurn() {
-    double turn = driver.getRawAxis(0);
-    if (Math.abs(turn) < 0.05) {
-      turn = 0;
-    }
-    return turn * Math.abs(turn);
+    return driver.getRawAxis(0);
   }
 
   //method that takes speed for conveyor belt from second controller triggers
- /*public double getConveyorSpeed() {
-    double speed = operator.getLeftTriggerAxis() - driver.getRightTriggerAxis();
-    if (Math.abs(speed) < 0.05) {
-      speed = 0;
-    }
-    return speed * speed * (speed / Math.abs(speed));
-  }*/
 }
