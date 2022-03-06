@@ -18,7 +18,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 public class IntakeSubsystem extends SubsystemBase {
      // Put methods for controlling this subsystem
     // here. Call these from Commands.
-    public DoubleSolenoid intakeArm=  new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 3, 5);
+    public DoubleSolenoid intakeArm =  new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 3, 5);
     
 
     //need edit: 0, 0
@@ -26,9 +26,8 @@ public class IntakeSubsystem extends SubsystemBase {
     CANSparkMax intakeClose = new CANSparkMax(0, MotorType.kBrushless);
     CANSparkMax intakeFar = new CANSparkMax(0, MotorType.kBrushless);
 
-    //@Override
-    public void intakeInitialize() {
-        //intakeArm.set(Value.kForward);;
+    public void intakeInitialize(boolean deploy) {
+        intakeArm.set(DoubleSolenoid.Value.kForward);;
     }
 
 
@@ -36,4 +35,10 @@ public class IntakeSubsystem extends SubsystemBase {
         intakeClose.set(speed);
         intakeFar.set(speed);
     }
+
+    public void intakeRetract(boolean retract){
+        intakeArm.set(DoubleSolenoid.Value.kReverse);
+    }
+
+
 }
