@@ -67,6 +67,7 @@ public class ClimberSubsystem extends SubsystemBase {
   public void sol1Release() {
     sol1.set(Value.kForward);
   }
+  //same method for rest of solenoids
 
   //return true if the sensor is triggered
   public boolean sensor1Status() {
