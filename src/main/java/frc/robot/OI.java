@@ -20,35 +20,70 @@ import frc.robot.commands.IntakeCommand;
 
 
 public class OI {
-  public XboxController driver;
-  public JoystickButton AButton;
-  public JoystickButton BButton;
-  public JoystickButton XButton;
+
+    public XboxController driver = new XboxController(0);
+    
+    public XboxController operator = new XboxController(1);
+
+    //Driver Controls
+    public JoystickButton driverAButton;
+    public JoystickButton driverBButton;
+    public JoystickButton driverXButton;
+    public JoystickButton driverYButton;
+
+    public JoystickButton driverLeftTrigger;
+    public JoystickButton driverRightTrigger;
+
+    //Operator Controls
+    public JoystickButton operatorAButton;
+    public JoystickButton operatorBButton;
+    public JoystickButton operatorXButton;
+    public JoystickButton operatorYButton;
 
   /** Creates a new OI. */
   public OI() {
-    driver = new XboxController(0);
-    //operator = new XboxController(1);
+    
 
     //Need edit: 1
-    AButton = new JoystickButton(driver, 1);
+    driverAButton = new JoystickButton(driver, 1);
+    driverBButton = new JoystickButton(driver, 2);
+    driverXButton = new JoystickButton(driver, 3);
+    driverYButton = new JoystickButton(driver, 4);
 
+    driverLeftTrigger = new JoystickButton(driver, 5);
+    driverRightTrigger = new JoystickButton(driver, 6);
 
-
-    //AButton.whileHeld(new ConveyorBeltCommand());
-    //BButton.whileHeld(new IntakeCommand());
+    operatorAButton = new JoystickButton(operator, 1);
+    operatorBButton = new JoystickButton(operator, 2);
+    operatorXButton = new JoystickButton(operator, 3);
+    operatorYButton = new JoystickButton(operator, 4);
+    
+    
+    
+    //driverBButton.whileHeld(new IntakeCommand());
+ 
+    //operatorAButton.whileHeld(new ConveyorBeltCommand());
 
   }
 
 
   // method that takes speed to go forwards or backwards from bumpers of controller depending on how hard driver presses
   public double getSpeed() {
-    return driver.getLeftTriggerAxis() - driver.getRightTriggerAxis();
+    if (Math.abs(driver.getLeftTriggerAxis() - driver.getRightTriggerAxis()) > 0.15){
+      return driver.getLeftTriggerAxis() - driver.getRightTriggerAxis();}
+    
+    return 0.0;
+
+    
   }
 
   // method that allows for joystick control to determine turns to left/right
   public double getTurn() {
-    return driver.getRawAxis(0);
+    if (driver.getRawAxis(0) > 0.15) {
+      return driver.getRawAxis(0);}
+    
+    return 0.0;
+    
   }
 
   //method that takes speed for conveyor belt from second controller triggers
