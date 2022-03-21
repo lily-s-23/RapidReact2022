@@ -47,7 +47,7 @@ public class OI {
     //Need edit: 1
     driverAButton = new JoystickButton(driver, 1);
     driverBButton = new JoystickButton(driver, 2);
-    driverXButton = new JoystickButton(driver, 3);
+    driverXButton = new JoystickButton(driver, 3);s
     driverYButton = new JoystickButton(driver, 4);
 
     driverLeftTrigger = new JoystickButton(driver, 5);
@@ -60,7 +60,8 @@ public class OI {
     
     
     
-    //driverBButton.whileHeld(new IntakeCommand());
+    driverBButton.whenPressed(new ConveyorBeltCommandForward());
+    driverXButton.whenPressed(new ConveyorBeltCommandStop());
  
     //operatorAButton.whileHeld(new ConveyorBeltCommand());
 
