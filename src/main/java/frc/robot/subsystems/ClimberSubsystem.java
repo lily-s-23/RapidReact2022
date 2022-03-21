@@ -9,6 +9,8 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonFX;
 
+import org.ejml.equation.Variable;
+
 //import com.ctre.phoenix.motorcontrol.TalonFXControlMode;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
@@ -26,28 +28,42 @@ public class ClimberSubsystem extends SubsystemBase {
   /** Creates a new ClimberSubsystem. */
   TalonFX elevator;
   TalonFX winch;
-  DoubleSolenoid sol1;
-  DoubleSolenoid sol2;
-  DoubleSolenoid sol3;
-  DigitalInput sensor1;
-  DigitalInput sensor2;
-  DigitalInput sensor3;
-  DigitalInput sensor4;
-  DigitalInput sensor5;
-  DigitalInput sensor6;
+  DoubleSolenoid solenoid1;
+  DoubleSolenoid solenoid2;
+  DoubleSolenoid solenoid3;
+  DigitalInput limitSwitch1;
+  DigitalInput limitSwitch2;
+  DigitalInput limitSwitch3;
+  
 
   public ClimberSubsystem() {
     elevator = new TalonFX(0);
     winch = new TalonFX(1);
-    sol1 = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 0, 1);
-    sol2 = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 3, 5);
-    sol3 = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 3, 5);
-    sensor1 = new DigitalInput(0);
-    sensor2 = new DigitalInput(0);
-    sensor3 = new DigitalInput(0);
-    sensor4 = new DigitalInput(0);
-    sensor5 = new DigitalInput(0);
-    sensor6 = new DigitalInput(0);
+    solenoid1 = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 0, 1);
+    solenoid2 = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 3, 5);
+    solenoid3 = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 3, 5);
+    limitSwitch1 = new DigitalInput(0);
+    limitSwitch2 = new DigitalInput(1);
+    limitSwitch3 = new DigitalInput(2);
+
+  public void climbOneLevel(double speed){
+    if(limitSwitchName.get()){
+      elevator.set(ControlMode.PercentOutput, speed);
+    } else{
+      elevator.set(ControlMode.PercentOu, demand);
+    }
+    while(limitSwitch1.get()){
+      elevator.set(ControlMode.PercentOutput, speed);
+
+    }
+
+    //while DigitalInput(0)
+    //elevator.set(ControlMode.PercentOutput, speed);
+
+    //extend motor 1 until limit switch is pressed
+    //set soleniod to move forward
+    //reverse motor 1
+    //rotate winch
   }
 
   public void setElevatorSpeed(double speed) {
