@@ -60,8 +60,11 @@ public class OI {
     
     
     
-    driverBButton.whenPressed(new ConveyorBeltCommandForward());
-    driverXButton.whenPressed(new ConveyorBeltCommandStop());
+    driverBButton.whileHeld(new ConveyorBeltCommandForward());
+    driverXButton.whileHeld(new ConveyorBeltCommandStop());
+    //driverAButton.whileHeld(new IntakeCommand());
+
+
  
     //operatorAButton.whileHeld(new ConveyorBeltCommand());
 

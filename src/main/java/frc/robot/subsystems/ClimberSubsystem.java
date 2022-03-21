@@ -63,8 +63,10 @@ public class ClimberSubsystem extends SubsystemBase {
     if (limitSwitch1.get()){
       winch.set(ControlMode.PercentOutput, 0.0);
       solenoid2.set(Value.kForward);
+      //This is where we need the driver to confirm the release
+
       
-      //need a stopping point
+
       
     } else {
       winch.set(ControlMode.PercentOutput, speedofWinch);

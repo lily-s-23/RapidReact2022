@@ -22,7 +22,6 @@ public class IntakeSubsystem extends SubsystemBase {
     
 
     CANSparkMax intake = new CANSparkMax(5, MotorType.kBrushless);
-    //CANSparkMax intakeFar = new CANSparkMax(, MotorType.kBrushless);
 
     public void intakeInitialize(boolean deploy) {
         intakeArm.set(DoubleSolenoid.Value.kForward);;
