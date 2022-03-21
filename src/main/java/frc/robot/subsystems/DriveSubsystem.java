@@ -42,7 +42,7 @@ public class DriveSubsystem extends SubsystemBase {
     R1encoder = R1motor.getEncoder();
     R1controller = R1motor.getPIDController();
 
-    R2motor = new CANSparkMax(4, MotorType.kBrushless);
+    R2motor = new CANSparkMax(6, MotorType.kBrushless);
     R2encoder = R2motor.getEncoder();
     R2controller = R2motor.getPIDController();
   }

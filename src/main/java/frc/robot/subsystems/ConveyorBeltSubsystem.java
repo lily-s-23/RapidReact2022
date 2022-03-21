@@ -17,7 +17,7 @@ public class ConveyorBeltSubsystem extends SubsystemBase {
     
 
     //need edit: 0
-    motor = new CANSparkMax(5, MotorType.kBrushless);
+    motor = new CANSparkMax(4, MotorType.kBrushless);
     
 
 
