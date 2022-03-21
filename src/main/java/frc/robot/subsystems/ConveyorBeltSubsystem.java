@@ -15,7 +15,11 @@ public class ConveyorBeltSubsystem extends SubsystemBase {
   /** Creates a new ConveyorBeltSubsystem. */
   public ConveyorBeltSubsystem() {
     
-    motor = new CANSparkMax(1, MotorType.kBrushless);
+
+    //need edit: 0
+    motor = new CANSparkMax(5, MotorType.kBrushless);
+    
+
 
     encoder = motor.getEncoder();
   }
@@ -27,6 +31,6 @@ public class ConveyorBeltSubsystem extends SubsystemBase {
 
   @Override
   public void periodic() {
-    //This method will be called once per scheduler run
+    // This method will be called once per scheduler run
   }
 }

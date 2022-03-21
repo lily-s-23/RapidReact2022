@@ -47,7 +47,7 @@ public class OI {
     //Need edit: 1
     driverAButton = new JoystickButton(driver, 1);
     driverBButton = new JoystickButton(driver, 2);
-    driverXButton = new JoystickButton(driver, 3);s
+    driverXButton = new JoystickButton(driver, 3);
     driverYButton = new JoystickButton(driver, 4);
 
     driverLeftTrigger = new JoystickButton(driver, 5);

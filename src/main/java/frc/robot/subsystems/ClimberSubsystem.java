@@ -46,16 +46,28 @@ public class ClimberSubsystem extends SubsystemBase {
     limitSwitch2 = new DigitalInput(1);
     limitSwitch3 = new DigitalInput(2);
 
-  public void climbOneLevel(double speed){
-    if(limitSwitchName.get()){
-      elevator.set(ControlMode.PercentOutput, speed);
-    } else{
-      elevator.set(ControlMode.PercentOu, demand);
+  /**   
+  public void climbLevelOne(double speedofElevator){
+    if (limitSwitch1.get()){
+      elevator.set(ControlMode.PercentOutput, 0.0);
+      solenoid1.set(Value.kForward);
+      elevator.set(ControlMode.PercentOutput, -speedofElevator);
+      //need a stopping point  
+    } else {
+      elevator.set(ControlMode.PercentOutput, speedofElevator);
     }
-    while(limitSwitch1.get()){
-      elevator.set(ControlMode.PercentOutput, speed);
-
-    }
+  }
+    
+  public void climbLevelTwo(double speedofWinch){
+    if (limitSwitch1.get()){
+      winch.set(ControlMode.PercentOutput, 0.0);
+      solenoid2.set(Value.kForward);
+      //need a stopping point
+      
+    } else {
+      winch.set(ControlMode.PercentOutput, speedofWinch);
+    }}
+   */
 
     //while DigitalInput(0)
     //elevator.set(ControlMode.PercentOutput, speed);
@@ -66,6 +78,7 @@ public class ClimberSubsystem extends SubsystemBase {
     //rotate winch
   }
 
+  /**
   public void setElevatorSpeed(double speed) {
     elevator.set(ControlMode.PercentOutput, speed);
   }
@@ -94,7 +107,7 @@ public class ClimberSubsystem extends SubsystemBase {
     }
   }
   //same method for rest of sensors
-
+  */
   
 
   @Override
