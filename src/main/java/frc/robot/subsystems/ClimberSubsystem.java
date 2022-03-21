@@ -26,8 +26,12 @@ import edu.wpi.first.wpilibj.DigitalInput;
 
 public class ClimberSubsystem extends SubsystemBase {
   /** Creates a new ClimberSubsystem. */
+<<<<<<< Updated upstream
 
   /**
+=======
+  
+>>>>>>> Stashed changes
   TalonFX elevator;
   TalonFX winch;
   DoubleSolenoid solenoid1;
@@ -35,7 +39,8 @@ public class ClimberSubsystem extends SubsystemBase {
   DoubleSolenoid solenoid3;
   DigitalInput limitSwitch1;s
   DigitalInput limitSwitch2;
-  DigitalInput limitSwitch3;
+  Digital
+  Input limitSwitch3;
   
 
   public ClimberSubsystem() {
