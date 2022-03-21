@@ -48,8 +48,8 @@ public class ClimberSubsystem extends SubsystemBase {
     limitSwitch2 = new DigitalInput(1);
     limitSwitch3 = new DigitalInput(2); }
     
-  /**   
-  public void climbLevelOne(double speedofElevator)
+     
+  public void climbLevelOne(double speedofElevator){
     if (limitSwitch1.get()){
       elevator.set(ControlMode.PercentOutput, 0.0);
       solenoid1.set(Value.kForward);
@@ -69,7 +69,7 @@ public class ClimberSubsystem extends SubsystemBase {
     } else {
       winch.set(ControlMode.PercentOutput, speedofWinch);
     }}
-   */
+   
 
     //while DigitalInput(0)
     //elevator.set(ControlMode.PercentOutput, speed);
