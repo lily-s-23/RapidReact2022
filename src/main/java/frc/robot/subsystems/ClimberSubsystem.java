@@ -26,12 +26,14 @@ import edu.wpi.first.wpilibj.DigitalInput;
 
 public class ClimberSubsystem extends SubsystemBase {
   /** Creates a new ClimberSubsystem. */
+
+  /**
   TalonFX elevator;
   TalonFX winch;
   DoubleSolenoid solenoid1;
   DoubleSolenoid solenoid2;
   DoubleSolenoid solenoid3;
-  DigitalInput limitSwitch1;
+  DigitalInput limitSwitch1;s
   DigitalInput limitSwitch2;
   DigitalInput limitSwitch3;
   
@@ -45,7 +47,7 @@ public class ClimberSubsystem extends SubsystemBase {
     limitSwitch1 = new DigitalInput(0);
     limitSwitch2 = new DigitalInput(1);
     limitSwitch3 = new DigitalInput(2);
-
+    */
   /**   
   public void climbLevelOne(double speedofElevator){
     if (limitSwitch1.get()){
@@ -76,7 +78,7 @@ public class ClimberSubsystem extends SubsystemBase {
     //set soleniod to move forward
     //reverse motor 1
     //rotate winch
-  }
+  
 
   /**
   public void setElevatorSpeed(double speed) {
