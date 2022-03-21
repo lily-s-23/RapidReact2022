@@ -27,7 +27,6 @@ import edu.wpi.first.wpilibj.DigitalInput;
 public class ClimberSubsystem extends SubsystemBase {
   /** Creates a new ClimberSubsystem. */
 
-  
   TalonFX elevator;
   TalonFX winch;
   DoubleSolenoid solenoid1;
