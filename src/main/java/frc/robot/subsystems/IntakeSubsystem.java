@@ -22,19 +22,19 @@ public class IntakeSubsystem extends SubsystemBase {
     
 
     //need edit: 0, 0
-
-    CANSparkMax intakeClose = new CANSparkMax(0, MotorType.kBrushless);
-    CANSparkMax intakeFar = new CANSparkMax(0, MotorType.kBrushless);
+    //fix port
+    //CANSparkMax intakeClose = new CANSparkMax(5, MotorType.kBrushless);
+    //CANSparkMax intakeFar = new CANSparkMax(, MotorType.kBrushless);
 
     public void intakeInitialize(boolean deploy) {
         intakeArm.set(DoubleSolenoid.Value.kForward);;
     }
 
 
-    public void intakeSpin(double speed){
+    /**public void intakeSpin(double speed){
         intakeClose.set(speed);
         intakeFar.set(speed);
-    }
+    }**/
 
     public void intakeRetract(boolean retract){
         intakeArm.set(DoubleSolenoid.Value.kReverse);
