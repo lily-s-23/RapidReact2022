@@ -21,9 +21,7 @@ public class IntakeSubsystem extends SubsystemBase {
     public DoubleSolenoid intakeArm =  new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 3, 5);
     
 
-    //need edit: 0, 0
-    //fix port
-    //CANSparkMax intakeClose = new CANSparkMax(5, MotorType.kBrushless);
+    CANSparkMax intake = new CANSparkMax(5, MotorType.kBrushless);
     //CANSparkMax intakeFar = new CANSparkMax(, MotorType.kBrushless);
 
     public void intakeInitialize(boolean deploy) {
@@ -31,10 +29,10 @@ public class IntakeSubsystem extends SubsystemBase {
     }
 
 
-    /**public void intakeSpin(double speed){
-        intakeClose.set(speed);
-        intakeFar.set(speed);
-    }**/
+    public void intakeSpin(double speed){
+        intake.set(speed);
+        
+    }
 
     public void intakeRetract(boolean retract){
         intakeArm.set(DoubleSolenoid.Value.kReverse);

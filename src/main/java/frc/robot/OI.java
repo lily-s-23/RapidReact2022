@@ -72,8 +72,8 @@ public class OI {
   public double getSpeed() {
     if (Math.abs(driver.getLeftTriggerAxis() - driver.getRightTriggerAxis()) > 0.15){
       return driver.getLeftTriggerAxis() - driver.getRightTriggerAxis();}
-    
-    return 0.0;
+    else
+      return 0.0;
 
     
   }
@@ -82,8 +82,8 @@ public class OI {
   public double getTurn() {
     if (driver.getRawAxis(0) > 0.15) {
       return driver.getRawAxis(0);}
-    
-    return 0.0;
+    else
+      return 0.0;
     
   }
 
