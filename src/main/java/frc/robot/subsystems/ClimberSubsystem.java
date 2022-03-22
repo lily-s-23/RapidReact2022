@@ -8,6 +8,8 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonFX;
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import org.ejml.equation.Variable;
 
@@ -26,7 +28,7 @@ import edu.wpi.first.wpilibj.DigitalInput;
 public class ClimberSubsystem extends SubsystemBase {
   /** Creates a new ClimberSubsystem. */
 
-  TalonFX elevator;
+  CANSparkMax elevator;
   TalonFX winch;
   DoubleSolenoid solenoid1;
   DoubleSolenoid solenoid2;
@@ -34,27 +36,42 @@ public class ClimberSubsystem extends SubsystemBase {
   DigitalInput limitSwitch1;
   DigitalInput limitSwitch2;
   DigitalInput limitSwitch3;
+  DigitalInput elevatorTopSwitch;
+  DigitalInput elevatorBottomSwitch;
   
 
   public ClimberSubsystem() {
-    elevator = new TalonFX(0);
+    elevator = new CANSparkMax(5, MotorType.kBrushless);
     winch = new TalonFX(1);
     solenoid1 = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 0, 1);
-    solenoid2 = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 3, 5);
-    solenoid3 = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 3, 5);
-    limitSwitch1 = new DigitalInput(0);
-    limitSwitch2 = new DigitalInput(1);
-    limitSwitch3 = new DigitalInput(2); }
+    solenoid2 = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 2, 3);
+    solenoid3 = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 4, 5);
+    elevatorTopSwitch = new DigitalInput(1);
+    elevatorBottomSwitch = new DigitalInput(2);
     
-     
+    limitSwitch1 = new DigitalInput(4);
+    limitSwitch2 = new DigitalInput(5);
+    limitSwitch3 = new DigitalInput(6); 
+  }
+    
+  public void elevatorUp(double speed){
+    if (elevatorTopSwitch.get()){
+      speed = Math.min(speed, 0);
+    } else if (elevatorBottomSwitch.get()) {
+        speed = Math.max(speed, 0);
+    }
+    elevator.set(speed);
+  }
+
+
   public void climbLevelOne(double speedofElevator){
     if (limitSwitch1.get()){
-      elevator.set(ControlMode.PercentOutput, 0.0);
+      elevator.set(0.0);
       solenoid1.set(Value.kForward);
-      elevator.set(ControlMode.PercentOutput, -speedofElevator);
+      elevator.set(-speedofElevator);
       //need a stopping point  
     } else {
-      elevator.set(ControlMode.PercentOutput, speedofElevator);
+      elevator.set(speedofElevator);
     }
   }
     
