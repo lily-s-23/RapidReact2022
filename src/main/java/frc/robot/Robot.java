@@ -24,6 +24,8 @@ import frc.robot.subsystems.ConveyorBeltSubsystem;
 import frc.robot.commands.ClimberCommand;
 import frc.robot.commands.ConveyorBeltCommandForward;
 import frc.robot.commands.ConveyorBeltCommandStop;
+import frc.robot.subsystems.ElevatorSubsystem;
+import frc.robot.commands.ElevatorCommandExtend;
 
 
 
@@ -54,6 +56,8 @@ public class Robot extends TimedRobot {
   public static ClimberSubsystem ClimberSubsystem = new ClimberSubsystem();
   public static ClimberCommand ClimberCommand = new ClimberCommand();
   public static EmergencyClimberStop EmergencyClimberStop = new EmergencyClimberStop();
+  public static ElevatorSubsystem ElevatorSubsystem = new ElevatorSubsystem();
+  public static ElevatorCommandExtend ElevatorCommand = new ElevatorCommandExtend();
 
 
 
