@@ -11,19 +11,19 @@ public class ElevatorCommandPull extends CommandBase {
   /** Creates a new ElevatorCommand. */
   public ElevatorCommandPull() {
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Robot.ElevatorSubsystem);
+    addRequirements(Robot.ClimberSubsystem);
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    Robot.ElevatorSubsystem.pull();
+    // Robot.ElevatorSubsystem.pull();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    Robot.ElevatorSubsystem.stopPull();
+    // Robot.ElevatorSubsystem.stopPull();
   }
 
   // Called once the command ends or is interrupted.

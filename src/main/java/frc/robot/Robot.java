@@ -16,16 +16,16 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
 
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.commands.DriveCommand;
-import frc.robot.commands.EmergencyClimberStop;
+// import frc.robot.commands.EmergencyClimberStop;
 import frc.robot.subsystems.IntakeSubsystem;
 import frc.robot.commands.IntakeCommand;
 import frc.robot.subsystems.ClimberSubsystem;
 import frc.robot.subsystems.ConveyorBeltSubsystem;
-import frc.robot.commands.ClimberCommand;
+// import frc.robot.commands.ClimberCommand;
 import frc.robot.commands.ConveyorBeltCommandForward;
 import frc.robot.commands.ConveyorBeltCommandStop;
-import frc.robot.subsystems.ElevatorSubsystem;
-import frc.robot.commands.ElevatorCommandExtend;
+// import frc.robot.subsystems.ElevatorSubsystem;
+// import frc.robot.commands.ElevatorCommandExtend;
 
 
 
@@ -54,10 +54,10 @@ public class Robot extends TimedRobot {
   public static IntakeCommand IntakeCommand = new IntakeCommand();
 
   public static ClimberSubsystem ClimberSubsystem = new ClimberSubsystem();
-  public static ClimberCommand ClimberCommand = new ClimberCommand();
-  public static EmergencyClimberStop EmergencyClimberStop = new EmergencyClimberStop();
-  public static ElevatorSubsystem ElevatorSubsystem = new ElevatorSubsystem();
-  public static ElevatorCommandExtend ElevatorCommand = new ElevatorCommandExtend();
+  // public static ClimberCommand ClimberCommand = new ClimberCommand();
+  // public static EmergencyClimberStop EmergencyClimberStop = new EmergencyClimberStop();
+  // public static ElevatorSubsystem ElevatorSubsystem = new ElevatorSubsystem();
+  // public static ElevatorCommandExtend ElevatorCommand = new ElevatorCommandExtend();
 
 
 

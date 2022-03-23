@@ -18,7 +18,7 @@ public class ElevatorSubsystem extends SubsystemBase {
   DigitalInput limitSwitch2;
 
   public ElevatorSubsystem() {
-    elevator = new TalonFX(1);
+    elevator = new TalonFX(10);
     limitSwitch1 = new DigitalInput(1);
     limitSwitch2 = new DigitalInput(2);
   }

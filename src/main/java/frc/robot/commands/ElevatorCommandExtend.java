@@ -11,19 +11,19 @@ public class ElevatorCommandExtend extends CommandBase {
   /** Creates a new ElevatorCommand. */
   public ElevatorCommandExtend() {
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Robot.ElevatorSubsystem);
+    addRequirements(Robot.ClimberSubsystem);
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    Robot.ElevatorSubsystem.extend();
+    // Robot.ElevatorSubsystem.extend();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    Robot.ElevatorSubsystem.stopExtend();
+    // Robot.ElevatorSubsystem.stopExtend();
   }
 
   // Called once the command ends or is interrupted.
