@@ -69,7 +69,15 @@ public class OI {
       //if these two buttons are pressed again then release into third climb
  
     //operatorAButton.whileHeld(new Co  nveyorBeltCommand());
+    /*
+    if (driverAButton.getAsBoolean()){
+      new ClimberCommandMove(Robot.climber);
+      System.out.println("button pressed");
+    } else {
+      System.out.println(driverAButton.getAsBoolean());
+    }*/
     driverAButton.whenPressed(new ClimberCommandMove(Robot.climber));
+
   }
 
 

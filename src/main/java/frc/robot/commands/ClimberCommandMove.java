@@ -5,10 +5,11 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
 import frc.robot.Robot;
 import frc.robot.subsystems.ClimberSubsystem;
 
-public class ClimberCommandMove extends CommandBase {
+public class ClimberCommandMove extends InstantCommand {
   /** Creates a new ClimberCommand. */
   private final ClimberSubsystem m_climber;
   static boolean direction;
@@ -21,22 +22,8 @@ public class ClimberCommandMove extends CommandBase {
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
-
-  // Called every time the scheduler runs while the command is scheduled.
-  @Override
-  public void execute() {
-    // Robot.climber.changeDirection();
-    Robot.climber.moveUp(0.2);
-  }
-
-  // Called once the command ends or is interrupted.
-  @Override
-  public void end(boolean interrupted) {}
-
-  // Returns true when the command should end.
-  @Override
-  public boolean isFinished() {
-    return false;
+  public void initialize() {
+    Robot.climber.changeDirection();
+    System.out.println("Direction changed");
   }
 }

@@ -59,16 +59,18 @@ public class ClimberSubsystem extends SubsystemBase {
     // limitSwitch2 = new DigitalInput(5);
     // limitSwitch3 = new DigitalInput(6); 
 
-    thread = new Thread();
-    thread.start();
+    // thread = new Thread();
+    // thread.start();
   }
   
   //activated once when pressed
   public void changeDirection(){
     direction = direction < 0 ? 1 : -1;
+    elevator.set(speed * direction);
   }
 
   //continuously run when pressed
+  /*
   public void run(){
     double s = speed;
     if (elevatorTopSwitch.get()){
@@ -78,7 +80,7 @@ public class ClimberSubsystem extends SubsystemBase {
     }
     elevator.set(s);
   }
-
+  */
   public void moveUp(double speed) {
     elevator.set(speed);
   }
