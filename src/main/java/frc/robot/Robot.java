@@ -45,9 +45,9 @@ public class Robot extends TimedRobot {
   public static DriveCommand DriveCommand = new DriveCommand();
   CommandScheduler commandScheduler = CommandScheduler.getInstance();
 
-  public static ConveyorBeltSubsystem ConveyorBelt = new ConveyorBeltSubsystem();
-  public static ConveyorBeltCommandForward ConveyorBeltForward = new ConveyorBeltCommandForward(ConveyorBelt);
-  public static ConveyorBeltCommandStop ConveyorBeltStop = new ConveyorBeltCommandStop(ConveyorBelt);
+  // public static ConveyorBeltSubsystem ConveyorBelt = new ConveyorBeltSubsystem();
+  // public static ConveyorBeltCommandForward ConveyorBeltForward = new ConveyorBeltCommandForward(ConveyorBelt);
+  // public static ConveyorBeltCommandStop ConveyorBeltStop = new ConveyorBeltCommandStop(ConveyorBelt);
 
 
   public static IntakeSubsystem Intake = new IntakeSubsystem();
