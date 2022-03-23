@@ -15,7 +15,7 @@ public class ClimberCommandMove extends CommandBase {
 
   public ClimberCommandMove(ClimberSubsystem climber) {
     m_climber = climber;
-    addRequirements(Robot.climber);
+    // addRequirements(Robot.climber);
     // Use addRequirements() here to declare subsystem dependencies.
   }
 
@@ -26,7 +26,8 @@ public class ClimberCommandMove extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_climber.changeDirection();
+    // Robot.climber.changeDirection();
+    Robot.climber.moveUp(0.2);
   }
 
   // Called once the command ends or is interrupted.

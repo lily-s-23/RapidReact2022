@@ -47,7 +47,7 @@ public class ClimberSubsystem extends SubsystemBase {
   
 
   public ClimberSubsystem() {
-    elevator = new CANSparkMax(RobotMap.ConveyorM, MotorType.kBrushless);
+    elevator = new CANSparkMax(RobotMap.elevatorM, MotorType.kBrushless);
     winch = new TalonFX(9);
     solenoid1 = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 0, 1);
     solenoid2 = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 2, 3);
@@ -78,6 +78,11 @@ public class ClimberSubsystem extends SubsystemBase {
     }
     elevator.set(s);
   }
+
+  public void moveUp(double speed) {
+    elevator.set(speed);
+  }
+
 
   /*
   public void climbLevelOne(double speedofElevator){
