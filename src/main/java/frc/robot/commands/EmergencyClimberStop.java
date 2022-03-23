@@ -11,7 +11,7 @@ public class EmergencyClimberStop extends CommandBase {
   /** Creates a new EmergencyClimberStop. */
   public EmergencyClimberStop() {
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Robot.ClimberSubsystem);
+    addRequirements(Robot.climber);
   }
 
   // Called when the command is initially scheduled.

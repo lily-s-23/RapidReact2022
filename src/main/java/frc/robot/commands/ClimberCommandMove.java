@@ -5,25 +5,27 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.Robot;
+import frc.robot.subsystems.ClimberSubsystem;
 
-public class ElevatorCommandExtend extends CommandBase {
-  /** Creates a new ElevatorCommand. */
-  public ElevatorCommandExtend() {
+public class ClimberCommandMove extends CommandBase {
+  /** Creates a new ClimberCommand. */
+  private final ClimberSubsystem m_climber;
+  static boolean direction;
+
+  public ClimberCommandMove(ClimberSubsystem climber) {
+    m_climber = climber;
+    addRequirements(climber);
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Robot.ElevatorSubsystem);
   }
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {
-    Robot.ElevatorSubsystem.extend();
-  }
+  public void initialize() {}
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    Robot.ElevatorSubsystem.stopExtend();
+    m_climber.changeDirection();
   }
 
   // Called once the command ends or is interrupted.

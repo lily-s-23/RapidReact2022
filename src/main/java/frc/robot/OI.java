@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.GenericHID;
 
 //Importing Commands
 import frc.robot.commands.DriveCommand;
+import frc.robot.commands.ClimberCommandMove;
 import frc.robot.commands.ConveyorBeltCommandForward;
 import frc.robot.commands.ConveyorBeltCommandStop;
 import frc.robot.commands.IntakeCommand;
@@ -42,8 +43,6 @@ public class OI {
 
   /** Creates a new OI. */
   public OI() {
-    
-
     //Need edit: 1
     driverAButton = new JoystickButton(driver, 1);
     driverBButton = new JoystickButton(driver, 2);
@@ -64,9 +63,7 @@ public class OI {
     driverXButton.whileHeld(new ConveyorBeltCommandStop());
     //driverAButton.whileHeld(new IntakeCommand());
 
-
- 
-    //operatorAButton.whileHeld(new ConveyorBeltCommand());
+    operatorAButton.whenPressed(new ClimberCommandMove(Robot.climber));
 
   }
 
