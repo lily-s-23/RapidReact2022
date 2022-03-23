@@ -40,20 +40,22 @@ public class Robot extends TimedRobot {
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
   // private final Timer m_timer = new Timer();
   public static OI OI = new OI();
+
   public static DriveSubsystem DriveSubsystem = new DriveSubsystem();
   public static DriveCommand DriveCommand = new DriveCommand();
   CommandScheduler commandScheduler = CommandScheduler.getInstance();
 
   public static ConveyorBeltSubsystem ConveyorBelt = new ConveyorBeltSubsystem();
-  public static ConveyorBeltCommandForward ConveyorBeltCommandForward = new ConveyorBeltCommandForward(ConveyorBelt);
-  public static ConveyorBeltCommandStop ConveyorBeltCommandStop = new ConveyorBeltCommandStop(ConveyorBelt);
+  public static ConveyorBeltCommandForward ConveyorBeltForward = new ConveyorBeltCommandForward(ConveyorBelt);
+  public static ConveyorBeltCommandStop ConveyorBeltStop = new ConveyorBeltCommandStop(ConveyorBelt);
+
 
   public static IntakeSubsystem Intake = new IntakeSubsystem();
   public static IntakeCommand IntakeCmd = new IntakeCommand(Intake);
 
   public static ClimberSubsystem climber = new ClimberSubsystem();
   public static ClimberCommandMove ClimberCommand = new ClimberCommandMove(climber);
-  public static EmergencyClimberStop EmergencyClimberStop = new EmergencyClimberStop();
+  //public static EmergencyClimberStop EmergencyClimberStop = new EmergencyClimberStop(climber);
   // public static ElevatorSubsystem ElevatorSubsystem = new ElevatorSubsystem();
   // public static ElevatorCommandExtend ElevatorCommand = new ElevatorCommandExtend();
 
