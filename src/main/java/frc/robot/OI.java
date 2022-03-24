@@ -77,6 +77,7 @@ public class OI {
       System.out.println(driverAButton.getAsBoolean());
     }*/
     driverAButton.whenPressed(new ClimberCommandMove(Robot.climber));
+    driverBButton.whileHeld(new IntakeCommand(Robot.Intake));
 
   }
 
