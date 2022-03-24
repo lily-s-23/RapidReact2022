@@ -21,10 +21,11 @@ public class IntakeSubsystem extends SubsystemBase {
     public DoubleSolenoid intakeArm =  new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 6, 7);
     
 
-    CANSparkMax intake = new CANSparkMax(7, MotorType.kBrushless);
+    CANSparkMax intake = new CANSparkMax(8, MotorType.kBrushless);
 
-    public void intakeInitialize(boolean deploy) {
-        intakeArm.set(DoubleSolenoid.Value.kForward);;
+    public void intakeInitialize(double speed) {
+        intakeArm.set(DoubleSolenoid.Value.kForward);
+        intake.set(speed);
     }
 
 

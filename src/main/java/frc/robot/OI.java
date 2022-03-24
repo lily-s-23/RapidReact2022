@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.GenericHID;
 
 //Importing Commands
 import frc.robot.commands.DriveCommand;
+import frc.robot.commands.ClimberCommandMove;
 import frc.robot.commands.ConveyorBeltCommandForward;
 import frc.robot.commands.ConveyorBeltCommandStop;
 import frc.robot.commands.IntakeCommand;
@@ -60,13 +61,23 @@ public class OI {
     
     
     
-    // driverBButton.whileHeld(new ConveyorBeltCommandForward());
-    // driverXButton.whileHeld(new ConveyorBeltCommandStop());
+    // driverBButton.whileHeld(new ConveyorBeltCommandForward(Robot.ConveyorBelt));
+    // driverXButton.whileHeld(new ConveyorBeltCommandStop(Robot.ConveyorBelt));
     //driverAButton.whileHeld(new IntakeCommand());
 
-
+    //If operators x button and operator y button pressed complete release function that then goes into third climb
+      //if these two buttons are pressed again then release into third climb
  
-    //operatorAButton.whileHeld(new ConveyorBeltCommand());
+    //operatorAButton.whileHeld(new Co  nveyorBeltCommand());
+    /*
+    if (driverAButton.getAsBoolean()){
+      new ClimberCommandMove(Robot.climber);
+      System.out.println("button pressed");
+    } else {
+      System.out.println(driverAButton.getAsBoolean());
+    }*/
+    driverAButton.whenPressed(new ClimberCommandMove(Robot.climber));
+    driverBButton.whileHeld(new IntakeCommand(Robot.Intake));
 
   }
 
@@ -83,11 +94,11 @@ public class OI {
 
   // method that allows for joystick control to determine turns to left/right
   public double getTurn() {
-    if (driver.getRawAxis(0) > 0.15) {
-      return driver.getRawAxis(0);}
-    else
+    if (Math.abs(driver.getRawAxis(0)) > 0.15) {
+      return driver.getRawAxis(0);
+    } else {
       return 0.0;
-    
+    }
   }
 
   //method that takes speed for conveyor belt from second controller triggers

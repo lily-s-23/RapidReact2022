@@ -6,21 +6,24 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
+import frc.robot.subsystems.ConveyorBeltSubsystem;
 
 public class ConveyorBeltCommandForward extends CommandBase {
 double speed;
+private final ConveyorBeltSubsystem m_conveyor;
 
   /** Creates a new ConveyorBeltCommand. */
-  public ConveyorBeltCommandForward() {
+  public ConveyorBeltCommandForward(ConveyorBeltSubsystem conveyor) {
+    m_conveyor = conveyor;
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Robot.ConveyorBeltSubsystem);
+    addRequirements(conveyor);
     this.speed = 1;
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    Robot.ConveyorBeltSubsystem.setMotorSpeed(speed);
+    m_conveyor.setMotorSpeed(speed);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
