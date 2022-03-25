@@ -31,28 +31,35 @@ public class DriveSubsystem extends SubsystemBase {
     SparkMaxPIDController R2controller;
 
   public DriveSubsystem() {
+
+    double rampValue = 1.1; // Set the time in seconds for ramp up value (acceleration curve)
+
     L1motor = new CANSparkMax(RobotMap.Left1, MotorType.kBrushless);
     L1encoder = L1motor.getEncoder();
     L1controller = L1motor.getPIDController();
+    L1motor.setOpenLoopRampRate(rampValue);
 
     L2motor = new CANSparkMax(RobotMap.Left2, MotorType.kBrushless);
     L2encoder = L2motor.getEncoder();
     L2controller = L2motor.getPIDController();
+    L2motor.setOpenLoopRampRate(rampValue);
 
     R1motor = new CANSparkMax(RobotMap.Right1, MotorType.kBrushless);
     R1encoder = R1motor.getEncoder();
     R1controller = R1motor.getPIDController();
+    R1motor.setOpenLoopRampRate(rampValue);
 
     R2motor = new CANSparkMax(RobotMap.Right2, MotorType.kBrushless);
     R2encoder = R2motor.getEncoder();
     R2controller = R2motor.getPIDController();
+    R2motor.setOpenLoopRampRate(rampValue);
   }
 
   public void TankDrive(double left, double right) {
-    L1motor.set(left);
-    L2motor.set(left);
-    R1motor.set(-right);
-    R2motor.set(-right);
+    L1motor.set(-left);
+    L2motor.set(-left);
+    R1motor.set(right);
+    R2motor.set(right);
   }
 
   public void ArcadeDrive(double speed, double turn) {

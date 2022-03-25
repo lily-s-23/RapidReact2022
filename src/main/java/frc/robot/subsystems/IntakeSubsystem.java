@@ -11,6 +11,7 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import com.revrobotics.RelativeEncoder;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.RobotMap;
 
 //import edu.wpi.first.wpilib.DoubleSolenoid;
 //import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
@@ -18,25 +19,37 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 public class IntakeSubsystem extends SubsystemBase {
      // Put methods for controlling this subsystem
     // here. Call these from Commands.
-    public DoubleSolenoid intakeArm =  new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 6, 7);
+    //public DoubleSolenoid intakeArm =  new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 6, 7);
     
+    CANSparkMax intake;
 
-    CANSparkMax intake = new CANSparkMax(8, MotorType.kBrushless);
-
+    //double speed = 0.3;
+    
+    public IntakeSubsystem(){
+        intake = new CANSparkMax(RobotMap.IntakeM, MotorType.kBrushless);
+    }
+    /**
     public void intakeInitialize(double speed) {
-        intakeArm.set(DoubleSolenoid.Value.kForward);
+        //intakeArm.set(DoubleSolenoid.Value.kForward);
         intake.set(speed);
     }
 
+    */
 
     public void intakeSpin(double speed){
         intake.set(speed);
         
     }
 
+    /**
     public void intakeRetract(boolean retract){
-        intakeArm.set(DoubleSolenoid.Value.kReverse);
+        //intakeArm.set(DoubleSolenoid.Value.kReverse);
     }
-
+    */
+    
+    @Override
+    public void periodic() {
+      // This method will be called once per scheduler run
+    }
 
 }

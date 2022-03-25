@@ -5,10 +5,11 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
 import frc.robot.Robot;
 import frc.robot.subsystems.ConveyorBeltSubsystem;
 
-public class ConveyorBeltCommandForward extends CommandBase {
+public class ConveyorBeltCommandForward extends InstantCommand {
 double speed;
 private final ConveyorBeltSubsystem m_conveyor;
 
@@ -16,16 +17,17 @@ private final ConveyorBeltSubsystem m_conveyor;
   public ConveyorBeltCommandForward(ConveyorBeltSubsystem conveyor) {
     m_conveyor = conveyor;
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(conveyor);
-    this.speed = 1;
+    //addRequirements(conveyor);
+    //this.speed = 1;
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    m_conveyor.setMotorSpeed(speed);
+    Robot.conveyor.setMotorSpeedMove(0.75);
   }
 
+  /**
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
@@ -41,4 +43,6 @@ private final ConveyorBeltSubsystem m_conveyor;
   public boolean isFinished() {
     return false;
   }
+  */
+  //change
 }

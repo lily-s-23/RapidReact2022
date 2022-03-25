@@ -18,9 +18,10 @@ import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.commands.DriveCommand;
 import frc.robot.commands.EmergencyClimberStop;
 import frc.robot.subsystems.IntakeSubsystem;
-import frc.robot.commands.IntakeCommand;
+import frc.robot.commands.IntakeCommandStart;
 import frc.robot.subsystems.ClimberSubsystem;
 import frc.robot.subsystems.ConveyorBeltSubsystem;
+//import frc.robot.commands.AutoDriveForward;
 import frc.robot.commands.ClimberCommandMove;
 import frc.robot.commands.ConveyorBeltCommandForward;
 import frc.robot.commands.ConveyorBeltCommandStop;
@@ -51,10 +52,14 @@ public class Robot extends TimedRobot {
 
 
   public static IntakeSubsystem Intake = new IntakeSubsystem();
-  public static IntakeCommand IntakeCmd = new IntakeCommand(Intake);
+  public static IntakeCommandStart IntakeCmd = new IntakeCommandStart(Intake);
 
   public static ClimberSubsystem climber = new ClimberSubsystem();
   public static ClimberCommandMove ClimberCommand = new ClimberCommandMove(climber);
+
+  public static ConveyorBeltSubsystem conveyor = new ConveyorBeltSubsystem();
+  public static ConveyorBeltCommandForward conveyorforward = new ConveyorBeltCommandForward(conveyor);
+  public static ConveyorBeltCommandStop conveyorback = new ConveyorBeltCommandStop(conveyor);
   //public static EmergencyClimberStop EmergencyClimberStop = new EmergencyClimberStop(climber);
   // public static ElevatorSubsystem ElevatorSubsystem = new ElevatorSubsystem();
   // public static ElevatorCommandExtend ElevatorCommand = new ElevatorCommandExtend();
@@ -94,9 +99,18 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void autonomousInit() {
-    m_autoSelected = m_chooser.getSelected();
+
+    String m_autoSelected = m_chooser.getSelected();
+
+    switch (m_autoSelected){
+      case "AutoDrive":
+      
+
+    }
     // m_autoSelected = SmartDashboard.getString("Auto Selector", kDefaultAuto);
     System.out.println("Auto selected: " + m_autoSelected);
+
+    //AutoDriveForward.();
     
   }
 
