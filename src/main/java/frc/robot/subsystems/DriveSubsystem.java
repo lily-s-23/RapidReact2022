@@ -48,10 +48,10 @@ public class DriveSubsystem extends SubsystemBase {
   }
 
   public void TankDrive(double left, double right) {
-    L1motor.set(left);
-    L2motor.set(left);
-    R1motor.set(-right);
-    R2motor.set(-right);
+    L1motor.set(-left);
+    L2motor.set(-left);
+    R1motor.set(right);
+    R2motor.set(right);
   }
 
   public void ArcadeDrive(double speed, double turn) {
