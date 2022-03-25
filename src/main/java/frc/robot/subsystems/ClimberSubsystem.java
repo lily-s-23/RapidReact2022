@@ -5,6 +5,7 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.RobotMap;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonFX;
@@ -38,10 +39,15 @@ public class ClimberSubsystem extends SubsystemBase {
   DigitalInput limitSwitch3;
   DigitalInput elevatorTopSwitch;
   DigitalInput elevatorBottomSwitch;
+
+  Thread thread;
+
+  int direction = -1;
+  double speed = 0.2;
   
 
   public ClimberSubsystem() {
-    elevator = new CANSparkMax(5, MotorType.kBrushless);
+    elevator = new CANSparkMax(RobotMap.elevatorM, MotorType.kBrushless);
     winch = new TalonFX(9);
     solenoid1 = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 0, 1);
     solenoid2 = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 2, 3);
@@ -49,21 +55,38 @@ public class ClimberSubsystem extends SubsystemBase {
     elevatorTopSwitch = new DigitalInput(1);
     elevatorBottomSwitch = new DigitalInput(2);
     
-    limitSwitch1 = new DigitalInput(4);
-    limitSwitch2 = new DigitalInput(5);
-    limitSwitch3 = new DigitalInput(6); 
+    // limitSwitch1 = new DigitalInput(4);
+    // limitSwitch2 = new DigitalInput(5);
+    // limitSwitch3 = new DigitalInput(6); 
+
+    // thread = new Thread();
+    // thread.start();
   }
-    
-  public void elevatorUp(double speed){
+  
+  //activated once when pressed
+  public void changeDirection(){
+    direction = direction < 0 ? 1 : -1;
+    elevator.set(speed * direction);
+  }
+
+  //continuously run when pressed
+  /*
+  public void run(){
+    double s = speed;
     if (elevatorTopSwitch.get()){
-      speed = Math.min(speed, 0);
+      s = Math.min(speed * direction, 0);
     } else if (elevatorBottomSwitch.get()) {
-        speed = Math.max(speed, 0);
+      s = Math.max(speed * direction, 0);
     }
+    elevator.set(s);
+  }
+  */
+  public void moveUp(double speed) {
     elevator.set(speed);
   }
 
 
+  /*
   public void climbLevelOne(double speedofElevator){
     if (limitSwitch1.get()){
       elevator.set(0.0);
@@ -87,7 +110,7 @@ public class ClimberSubsystem extends SubsystemBase {
     } else {
       winch.set(ControlMode.PercentOutput, speedofWinch);
     }}
-   
+   */
 
     //while DigitalInput(0)
     //elevator.set(ControlMode.PercentOutput, speed);

@@ -6,24 +6,30 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
+import frc.robot.subsystems.ConveyorBeltSubsystem;
 
-public class ElevatorCommandExtend extends CommandBase {
-  /** Creates a new ElevatorCommand. */
-  public ElevatorCommandExtend() {
+public class AutoShoot extends CommandBase {
+  /** Creates a new AutoShoot. */
+  double startTime;
+  double endTime;
+
+  public AutoShoot(double time) {
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Robot.ClimberSubsystem);
+    //addRequirements(Robot.ConveyorBeltSubsystem);
+    endTime = time;
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    // Robot.ElevatorSubsystem.extend();
+    startTime = System.currentTimeMillis();
+    endTime = endTime + startTime;
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    // Robot.ElevatorSubsystem.stopExtend();
+    Robot.conveyor.setMotorSpeedMove(0.75);
   }
 
   // Called once the command ends or is interrupted.
@@ -33,6 +39,9 @@ public class ElevatorCommandExtend extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
+    if (endTime >= System.currentTimeMillis()) {
+      return true;
+    }
     return false;
   }
 }

@@ -16,16 +16,15 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
 
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.commands.DriveCommand;
-// import frc.robot.commands.EmergencyClimberStop;
+import frc.robot.commands.EmergencyClimberStop;
 import frc.robot.subsystems.IntakeSubsystem;
-import frc.robot.commands.IntakeCommand;
+import frc.robot.commands.IntakeCommandStart;
 import frc.robot.subsystems.ClimberSubsystem;
 import frc.robot.subsystems.ConveyorBeltSubsystem;
-// import frc.robot.commands.ClimberCommand;
+//import frc.robot.commands.AutoDriveForward;
+import frc.robot.commands.ClimberCommandMove;
 import frc.robot.commands.ConveyorBeltCommandForward;
 import frc.robot.commands.ConveyorBeltCommandStop;
-// import frc.robot.subsystems.ElevatorSubsystem;
-// import frc.robot.commands.ElevatorCommandExtend;
 
 
 
@@ -42,20 +41,26 @@ public class Robot extends TimedRobot {
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
   // private final Timer m_timer = new Timer();
   public static OI OI = new OI();
+
   public static DriveSubsystem DriveSubsystem = new DriveSubsystem();
   public static DriveCommand DriveCommand = new DriveCommand();
   CommandScheduler commandScheduler = CommandScheduler.getInstance();
 
-  public static ConveyorBeltSubsystem ConveyorBeltSubsystem = new ConveyorBeltSubsystem();
-  public static ConveyorBeltCommandForward ConveyorBeltCommandForward = new ConveyorBeltCommandForward();
-  public static ConveyorBeltCommandStop ConveyorBeltCommandStop = new ConveyorBeltCommandStop();
+  // public static ConveyorBeltSubsystem ConveyorBelt = new ConveyorBeltSubsystem();
+  // public static ConveyorBeltCommandForward ConveyorBeltForward = new ConveyorBeltCommandForward(ConveyorBelt);
+  // public static ConveyorBeltCommandStop ConveyorBeltStop = new ConveyorBeltCommandStop(ConveyorBelt);
 
-  public static IntakeSubsystem IntakeSubsystem = new IntakeSubsystem();
-  public static IntakeCommand IntakeCommand = new IntakeCommand();
 
-  public static ClimberSubsystem ClimberSubsystem = new ClimberSubsystem();
-  // public static ClimberCommand ClimberCommand = new ClimberCommand();
-  // public static EmergencyClimberStop EmergencyClimberStop = new EmergencyClimberStop();
+  public static IntakeSubsystem Intake = new IntakeSubsystem();
+  public static IntakeCommandStart IntakeCmd = new IntakeCommandStart(Intake);
+
+  public static ClimberSubsystem climber = new ClimberSubsystem();
+  public static ClimberCommandMove ClimberCommand = new ClimberCommandMove(climber);
+
+  public static ConveyorBeltSubsystem conveyor = new ConveyorBeltSubsystem();
+  public static ConveyorBeltCommandForward conveyorforward = new ConveyorBeltCommandForward(conveyor);
+  public static ConveyorBeltCommandStop conveyorback = new ConveyorBeltCommandStop(conveyor);
+  //public static EmergencyClimberStop EmergencyClimberStop = new EmergencyClimberStop(climber);
   // public static ElevatorSubsystem ElevatorSubsystem = new ElevatorSubsystem();
   // public static ElevatorCommandExtend ElevatorCommand = new ElevatorCommandExtend();
 
@@ -94,9 +99,18 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void autonomousInit() {
-    m_autoSelected = m_chooser.getSelected();
+
+    String m_autoSelected = m_chooser.getSelected();
+
+    switch (m_autoSelected){
+      case "AutoDrive":
+      
+
+    }
     // m_autoSelected = SmartDashboard.getString("Auto Selector", kDefaultAuto);
     System.out.println("Auto selected: " + m_autoSelected);
+
+    //AutoDriveForward.();
     
   }
 
