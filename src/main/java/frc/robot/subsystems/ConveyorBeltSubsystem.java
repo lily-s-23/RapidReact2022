@@ -5,6 +5,8 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.RobotMap;
+
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import com.revrobotics.RelativeEncoder;
@@ -12,21 +14,26 @@ import com.revrobotics.RelativeEncoder;
 public class ConveyorBeltSubsystem extends SubsystemBase {
   CANSparkMax motor;
   RelativeEncoder encoder;
+
+  //double speedForward = 1.0;
+  //double speedStop = 0.0;
   /** Creates a new ConveyorBeltSubsystem. */
   public ConveyorBeltSubsystem() {
     
-
+    
     //need edit: 0
-    motor = new CANSparkMax(4, MotorType.kBrushless);
+    motor = new CANSparkMax(RobotMap.ConveyorM, MotorType.kBrushless);
   
 
-    encoder = motor.getEncoder();
+    //encoder = motor.getEncoder();
   }
 
   //input: desired speed for conveyor belt going forward
-  public void setMotorSpeed(double speed) {
+  public void setMotorSpeedMove(double speed) {
     motor.set(speed);
   }
+
+  //public void setMotorSpeedStop(double)
 
   @Override
   public void periodic() {

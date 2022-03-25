@@ -6,12 +6,16 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
+import frc.robot.subsystems.ClimberSubsystem;
 
 public class EmergencyClimberStop extends CommandBase {
   /** Creates a new EmergencyClimberStop. */
-  public EmergencyClimberStop() {
+  private final ClimberSubsystem m_climber;
+
+  public EmergencyClimberStop(ClimberSubsystem climber) {
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Robot.ClimberSubsystem);
+    m_climber = climber;
+    addRequirements(climber);
   }
 
   // Called when the command is initially scheduled.
