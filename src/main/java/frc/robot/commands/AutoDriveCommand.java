@@ -30,7 +30,7 @@ public class AutoDriveCommand extends CommandBase {
   public void execute() {
     Robot.DriveSubsystem.ArcadeDrive(0.5, 0.0);
   }
-
+  
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {}
