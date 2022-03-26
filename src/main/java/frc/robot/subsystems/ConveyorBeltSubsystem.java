@@ -10,10 +10,12 @@ import frc.robot.RobotMap;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import com.revrobotics.RelativeEncoder;
+import edu.wpi.first.wpilibj.DigitalInput;
 
 public class ConveyorBeltSubsystem extends SubsystemBase {
   CANSparkMax motor;
   RelativeEncoder encoder;
+  public static DigitalInput beambrakesensor;
 
   //double speedForward = 1.0;
   //double speedStop = 0.0;
@@ -23,6 +25,7 @@ public class ConveyorBeltSubsystem extends SubsystemBase {
     
     //need edit: 0
     motor = new CANSparkMax(RobotMap.ConveyorM, MotorType.kBrushless);
+    beambrakesensor = new DigitalInput(RobotMap.beamBrake);
   
 
     //encoder = motor.getEncoder();
@@ -31,6 +34,10 @@ public class ConveyorBeltSubsystem extends SubsystemBase {
   //input: desired speed for conveyor belt going forward
   public void setMotorSpeedMove(double speed) {
     motor.set(speed);
+  }
+
+  public static boolean getBeamBrakeSensor() {
+    return beambrakesensor.get();
   }
 
   //public void setMotorSpeedStop(double)

@@ -27,7 +27,9 @@ public class ConveyorBeltCommandToggle extends InstantCommand {
   public void initialize() {
     if (onOff == 0) {
       onOff = 1;
-    } else if (onOff == 1) {
+    } else if (onOff == 1){
+      onOff = 0;
+    } else if (ConveyorBeltSubsystem.getBeamBrakeSensor() == true){
       onOff = 0;
     }
     //m_intake.intakeInitialize(0.5);

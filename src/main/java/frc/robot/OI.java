@@ -16,7 +16,9 @@ import frc.robot.commands.ClimberCommandMove;
 import frc.robot.commands.ConveyorBeltCommandForward;
 import frc.robot.commands.ConveyorBeltCommandToggle;
 import frc.robot.commands.IntakeCommandToggle;
+import frc.robot.subsystems.ConveyorBeltSubsystem;
 import frc.robot.commands.IntakeCommandStop;
+import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 
 
@@ -64,6 +66,7 @@ public class OI {
     operatorXButton = new JoystickButton(operator, 3);
     operatorYButton = new JoystickButton(operator, 4);
     
+    //Trigger endConveyorDetector = new Trigger(() -> conveyor.getBeamBrakeSensor);
     
     
     // driverBButton.whileHeld(new ConveyorBeltCommandForward(Robot.ConveyorBelt));
