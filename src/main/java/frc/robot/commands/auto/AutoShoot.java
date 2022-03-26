@@ -10,10 +10,10 @@ import frc.robot.Robot;
 
 public class AutoShoot extends CommandBase {
   /** Creates a new AutoShoot. */
-  long startTime;
-  long endTime;
+  double startTime;
+  double endTime;
 
-  public AutoShoot(long time) {
+  public AutoShoot(double time) {
     // Use addRequirements() here to declare subsystem dependencies.
     //addRequirements(Robot.ConveyorBeltSubsystem);
     endTime = time;
@@ -30,22 +30,23 @@ public class AutoShoot extends CommandBase {
   @Override
   public void execute() {
     Robot.conveyor.setMotorSpeedMove(0.75);
-    System.out.println("executing shoot command");
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
     System.out.println("Shoot Command has ended");
+
   }
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
     if (endTime >= System.currentTimeMillis()) {
-      System.out.println("command ended");
       return true;
     }
+    
     return false;
+
   }
 }

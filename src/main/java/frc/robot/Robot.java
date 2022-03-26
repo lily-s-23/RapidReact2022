@@ -104,7 +104,19 @@ public class Robot extends TimedRobot {
 
     String m_autoSelected = m_chooser.getSelected();
     
-    commandScheduler.schedule(new AutoSequence());
+    System.out.println("Auto selected: " + m_autoSelected);
+    switch (m_autoSelected) {
+      case kCustomAuto:
+        commandScheduler.schedule(new AutoSequence());
+
+        break;
+      case kDefaultAuto:
+      default:
+        commandScheduler.schedule(new AutoSequence());
+        break;
+    }
+
+    //commandScheduler.schedule(new AutoSequence());
 
     /*
     switch (m_autoSelected){
@@ -127,6 +139,7 @@ public class Robot extends TimedRobot {
     //AutoCommand.start();
     commandScheduler.run();
 
+    /*
     switch (m_autoSelected) {
       case kCustomAuto:
         // Put custom auto code here
@@ -135,8 +148,9 @@ public class Robot extends TimedRobot {
       default:
         // Put default auto code here
         break;
+      **/
     }
-  }
+  
 
   /** This function is called once when teleop is enabled. */
   @Override
