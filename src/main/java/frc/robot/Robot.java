@@ -21,6 +21,7 @@ import frc.robot.subsystems.IntakeSubsystem;
 import frc.robot.commands.IntakeCommandToggle;
 import frc.robot.subsystems.ClimberSubsystem;
 import frc.robot.subsystems.ConveyorBeltSubsystem;
+import frc.robot.commands.AutoDriveCommand;
 //import frc.robot.commands.AutoDriveForward;
 import frc.robot.commands.ClimberCommandMove;
 import frc.robot.commands.ConveyorBeltCommandForward;
@@ -101,12 +102,16 @@ public class Robot extends TimedRobot {
   public void autonomousInit() {
 
     String m_autoSelected = m_chooser.getSelected();
-
+    
+    /*
     switch (m_autoSelected){
-      case "AutoDrive":
+      case kCustomAuto:
+        commandScheduler.schedule(new AutoDriveCommand());
+
       
 
     }
+    */
     // m_autoSelected = SmartDashboard.getString("Auto Selector", kDefaultAuto);
     System.out.println("Auto selected: " + m_autoSelected);
 
