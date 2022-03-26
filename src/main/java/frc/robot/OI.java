@@ -14,8 +14,8 @@ import edu.wpi.first.wpilibj.GenericHID;
 import frc.robot.commands.DriveCommand;
 import frc.robot.commands.ClimberCommandMove;
 import frc.robot.commands.ConveyorBeltCommandForward;
-import frc.robot.commands.ConveyorBeltCommandStop;
-import frc.robot.commands.IntakeCommandStart;
+import frc.robot.commands.ConveyorBeltCommandToggle;
+import frc.robot.commands.IntakeCommandToggle;
 import frc.robot.commands.IntakeCommandStop;
 
 
@@ -32,6 +32,8 @@ public class OI {
     public JoystickButton driverBButton;
     public JoystickButton driverXButton;
     public JoystickButton driverYButton;
+    public JoystickButton driverLbump;
+    public JoystickButton driverRbump;
 
     public JoystickButton driverLeftTrigger;
     public JoystickButton driverRightTrigger;
@@ -51,6 +53,8 @@ public class OI {
     driverBButton = new JoystickButton(driver, 2);
     driverXButton = new JoystickButton(driver, 3);
     driverYButton = new JoystickButton(driver, 4);
+    driverLbump = new JoystickButton(driver, 5);
+    driverRbump = new JoystickButton(driver, 6);
 
     driverLeftTrigger = new JoystickButton(driver, 5);
     driverRightTrigger = new JoystickButton(driver, 6);
@@ -64,7 +68,7 @@ public class OI {
     
     // driverBButton.whileHeld(new ConveyorBeltCommandForward(Robot.ConveyorBelt));
     // ==driverXButton.whileHeld(new ConveyorBeltCommandStop(Robot.ConveyorBelt));
-    //driverAButton.whileHeld(new IntakeCommand());
+    // driverAButton.whileHeld(new IntakeCommand());
 
     //If operators x button and operator y button pressed complete release function that then goes into third climb
       //if these two buttons are pressed again then release into third climb
@@ -78,12 +82,18 @@ public class OI {
       System.out.println(driverAButton.getAsBoolean());
     }*/
     driverAButton.whenPressed(new ClimberCommandMove(Robot.climber));
-    driverBButton.whenPressed(new IntakeCommandStart(Robot.Intake));
-    driverBButton.whenReleased(new IntakeCommandStop(Robot.Intake));
-    driverXButton.whenPressed(new ConveyorBeltCommandForward(Robot.conveyor));
-    driverXButton.whenReleased(new ConveyorBeltCommandStop(Robot.conveyor));
-    //driverBButton.whenPressed(new ConveyorBeltCommandForward(Robot.conveyor));
-    //driverXButton.whenPressed(new ConveyorBeltCommandStop(Robot.conveyor));
+    
+    // driverBButton.whenPressed(new IntakeCommandToggle(Robot.Intake));
+    // driverBButton.whenReleased(new IntakeCommandStop(Robot.Intake));
+    driverRbump.whenPressed(new IntakeCommandToggle(Robot.Intake));
+    
+    // driverXButton.whenPressed(new ConveyorBeltCommandForward(Robot.conveyor));
+    // driverXButton.whenReleased(new ConveyorBeltCommandStop(Robot.conveyor));
+    driverLbump.whenPressed(new ConveyorBeltCommandToggle(Robot.conveyor));
+    
+    
+    //driverXButton.whenPressed(new ConveyorBeltCommandForward(Robot.conveyor));
+    //driverYButton.whenPressed(new ConveyorBeltCommandStop(Robot.conveyor));
 
   }
 

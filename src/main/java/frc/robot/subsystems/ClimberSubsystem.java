@@ -43,7 +43,7 @@ public class ClimberSubsystem extends SubsystemBase {
   Thread thread;
 
   int direction = -1;
-  double speed = 0.2;
+  double speed = 0.8;
   
 
   public ClimberSubsystem() {
