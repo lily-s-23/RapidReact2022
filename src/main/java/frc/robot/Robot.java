@@ -104,16 +104,18 @@ public class Robot extends TimedRobot {
 
     String m_autoSelected = m_chooser.getSelected();
     
-    
+    commandScheduler.schedule(new AutoSequence());
+
+    /*
     switch (m_autoSelected){
       
       case kCustomAuto:
         commandScheduler.schedule(new AutoSequence());
 
     }
-    //*/
+    */
     // m_autoSelected = SmartDashboard.getString("Auto Selector", kDefaultAuto);
-    System.out.println("Auto selected: " + m_autoSelected);
+    //System.out.println("Auto selected: " + m_autoSelected);
 
     //AutoDriveForward.();
     
