@@ -18,13 +18,13 @@ import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.commands.DriveCommand;
 import frc.robot.commands.EmergencyClimberStop;
 import frc.robot.subsystems.IntakeSubsystem;
-import frc.robot.commands.IntakeCommandStart;
+import frc.robot.commands.IntakeCommandToggle;
 import frc.robot.subsystems.ClimberSubsystem;
 import frc.robot.subsystems.ConveyorBeltSubsystem;
 //import frc.robot.commands.AutoDriveForward;
 import frc.robot.commands.ClimberCommandMove;
 import frc.robot.commands.ConveyorBeltCommandForward;
-import frc.robot.commands.ConveyorBeltCommandStop;
+import frc.robot.commands.ConveyorBeltCommandToggle;
 
 
 
@@ -52,14 +52,14 @@ public class Robot extends TimedRobot {
 
 
   public static IntakeSubsystem Intake = new IntakeSubsystem();
-  public static IntakeCommandStart IntakeCmd = new IntakeCommandStart(Intake);
+  public static IntakeCommandToggle IntakeCmd = new IntakeCommandToggle(Intake);
 
   public static ClimberSubsystem climber = new ClimberSubsystem();
   public static ClimberCommandMove ClimberCommand = new ClimberCommandMove(climber);
 
   public static ConveyorBeltSubsystem conveyor = new ConveyorBeltSubsystem();
   public static ConveyorBeltCommandForward conveyorforward = new ConveyorBeltCommandForward(conveyor);
-  public static ConveyorBeltCommandStop conveyorback = new ConveyorBeltCommandStop(conveyor);
+  public static ConveyorBeltCommandToggle conveyorback = new ConveyorBeltCommandToggle(conveyor);
   //public static EmergencyClimberStop EmergencyClimberStop = new EmergencyClimberStop(climber);
   // public static ElevatorSubsystem ElevatorSubsystem = new ElevatorSubsystem();
   // public static ElevatorCommandExtend ElevatorCommand = new ElevatorCommandExtend();

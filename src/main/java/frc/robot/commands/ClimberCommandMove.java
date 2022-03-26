@@ -24,6 +24,6 @@ public class ClimberCommandMove extends InstantCommand {
   @Override
   public void initialize() {
     Robot.climber.changeDirection();
-    System.out.println("Direction changed");
+    // System.out.println("Direction changed");
   }
 }
