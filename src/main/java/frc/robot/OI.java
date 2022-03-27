@@ -47,6 +47,9 @@ public class OI {
     public JoystickButton operatorXButton;
     public JoystickButton operatorYButton;
 
+    public JoystickButton operatorRightTrigger;
+    public JoystickButton operatorLeftTrigger;
+
   /** Creates a new OI. */
   public OI() {
     
