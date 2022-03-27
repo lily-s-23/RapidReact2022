@@ -20,22 +20,27 @@ public class IntakeSubsystem extends SubsystemBase {
      // Put methods for controlling this subsystem
     // here. Call these from Commands.
     
-    public DoubleSolenoid intakeArm =  new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 0, 1);
+    //public DoubleSolenoid intakeArm =  new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 0, 1);
 
     CANSparkMax intake;
+    DoubleSolenoid intakeArm;
 
     //double speed = 0.3;
     
     public IntakeSubsystem(){
         intake = new CANSparkMax(RobotMap.IntakeM, MotorType.kBrushless);
+        intakeArm =  new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 0, 1);
+        intakeArm.set(Value.kForward);
     }
     
     public void intakeInitialize() {
-        intakeArm.set(DoubleSolenoid.Value.kForward);
+        intakeArm.set(Value.kForward);
         //intake.set(speed);
     }
 
-
+    public void intakeToggle() {
+        intakeArm.toggle();
+    }
 
     public void intakeSpin(double speed){
         intake.set(speed);
@@ -44,7 +49,7 @@ public class IntakeSubsystem extends SubsystemBase {
 
     
     public void intakeRetract(boolean retract){
-        intakeArm.set(DoubleSolenoid.Value.kReverse);
+        intakeArm.set(Value.kForward);
     }
 
     

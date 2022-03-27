@@ -25,6 +25,7 @@ private final ConveyorBeltSubsystem m_conveyor;
   @Override
   public void initialize() {
     Robot.conveyor.setMotorSpeedMove(0.5);
+  
   }
 
   /**

@@ -34,6 +34,7 @@ public class AutoDriveCommand extends CommandBase {
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
+    Robot.DriveSubsystem.ArcadeDrive(0.0, 0.0);
     System.out.println("Drive Command has ended");
     
   }
@@ -41,7 +42,7 @@ public class AutoDriveCommand extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    if (endTime >= System.currentTimeMillis()) {
+    if (System.currentTimeMillis() >= (startTime + endTime)) {
       return true;
     }
     return false;

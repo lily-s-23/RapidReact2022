@@ -96,7 +96,7 @@ public class OI {
     driverLbump.whenPressed(new ConveyorBeltCommandToggle(Robot.conveyor));
     
     //button that brings out intake
-    //operatorAButton.whenPressed(new IntakeCommandStart(Robot.Intake));
+    driverYButton.whenPressed(new IntakeCommandStart(Robot.Intake));
     //operatorBButton.whenPressed(new IntakeCommandStop(Robot.Intake));
     
     

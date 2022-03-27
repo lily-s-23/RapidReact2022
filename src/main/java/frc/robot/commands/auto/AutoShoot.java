@@ -35,6 +35,7 @@ public class AutoShoot extends CommandBase {
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
+    Robot.conveyor.setMotorSpeedMove(0.0);
     System.out.println("Shoot Command has ended");
 
   }
@@ -42,7 +43,7 @@ public class AutoShoot extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    if (endTime >= System.currentTimeMillis()) {
+    if (System.currentTimeMillis() >= (startTime + endTime)) {
       return true;
     }
     
