@@ -74,8 +74,9 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotInit() {
-    m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
-    m_chooser.addOption("My Auto", kCustomAuto);
+    m_chooser.setDefaultOption("Auto Drive", "Auto Drive");
+    m_chooser.addOption("Auto Drive and Shoot", "Auto Drive and Shoot");
+    
     SmartDashboard.putData("Auto choices", m_chooser);
   }
 
@@ -87,7 +88,9 @@ public class Robot extends TimedRobot {
    * SmartDashboard integrated updating.
    */
   @Override
-  public void robotPeriodic() {}
+  public void robotPeriodic() {
+
+  }
 
   /**
    * This autonomous (along with the chooser code above) shows how to select between different
@@ -102,19 +105,25 @@ public class Robot extends TimedRobot {
   @Override
   public void autonomousInit() {
 
-    String m_autoSelected = m_chooser.getSelected();
+    m_autoSelected = m_chooser.getSelected();
     
+    System.out.println("Auto selected: " + m_autoSelected);
+
+    /*
     System.out.println("Auto selected: " + m_autoSelected);
     switch (m_autoSelected) {
       case kCustomAuto:
+        
         commandScheduler.schedule(new AutoSequence());
-
         break;
+
       case kDefaultAuto:
-      default:
+
         commandScheduler.schedule(new AutoSequence());
         break;
     }
+
+    */
 
     //commandScheduler.schedule(new AutoSequence());
 
@@ -137,6 +146,20 @@ public class Robot extends TimedRobot {
   @Override
   public void autonomousPeriodic() {
     //AutoCommand.start();
+    switch (m_autoSelected) {
+      case "Auto Drive":
+        commandScheduler.schedule(new AutoSequence());
+
+        break;
+
+      case "Auto Drive and Shoot":
+        commandScheduler.schedule(new AutoSequence());
+
+        break;
+        
+      default:
+        commandScheduler.schedule(new AutoSequence());
+    }
     commandScheduler.run();
 
     /*
