@@ -74,8 +74,8 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotInit() {
-    m_chooser.setDefaultOption("Auto Drive", "Auto Drive");
-    m_chooser.addOption("Auto Drive and Shoot", "Auto Drive and Shoot");
+    m_chooser.setDefaultOption("Drive", "AutoDrive");
+    m_chooser.addOption("DriveShoot", "AutoDriveandShoot");
     
     SmartDashboard.putData("Auto choices", m_chooser);
   }
@@ -105,10 +105,27 @@ public class Robot extends TimedRobot {
   @Override
   public void autonomousInit() {
 
-    m_autoSelected = m_chooser.getSelected();
+    String m_autoSelected = m_chooser.getSelected();
     
+    switch (m_autoSelected) {
+      case "Auto Drive":
+        commandScheduler.schedule(new AutoSequence());
+
+        break;
+
+      case "Auto Drive and Shoot":
+        commandScheduler.schedule(new AutoSequence());
+
+        break;
+        
+      default:
+        commandScheduler.schedule(new AutoSequence());
+    }
+
     System.out.println("Auto selected: " + m_autoSelected);
 
+
+    //commandScheduler.schedule(new AutoSequence());
     /*
     System.out.println("Auto selected: " + m_autoSelected);
     switch (m_autoSelected) {
@@ -146,6 +163,9 @@ public class Robot extends TimedRobot {
   @Override
   public void autonomousPeriodic() {
     //AutoCommand.start();
+    //commandScheduler.schedule(new AutoSequence());
+
+    /*
     switch (m_autoSelected) {
       case "Auto Drive":
         commandScheduler.schedule(new AutoSequence());
@@ -160,6 +180,7 @@ public class Robot extends TimedRobot {
       default:
         commandScheduler.schedule(new AutoSequence());
     }
+    */
     commandScheduler.run();
 
     /*
