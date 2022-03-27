@@ -20,7 +20,7 @@ public class IntakeSubsystem extends SubsystemBase {
      // Put methods for controlling this subsystem
     // here. Call these from Commands.
     
-    public DoubleSolenoid intakeArm =  new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 6, 7);
+    public DoubleSolenoid intakeArm =  new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 0, 1);
 
     CANSparkMax intake;
 
