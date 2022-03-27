@@ -108,7 +108,7 @@ public class OI {
 
   // method that takes speed to go forwards or backwards from bumpers of controller depending on how hard driver presses
   public double getSpeed() {
-    if (Math.abs(driver.getLeftTriggerAxis() - driver.getRightTriggerAxis()) > 0.15){
+    if (Math.abs(driver.getLeftTriggerAxis() - driver.getRightTriggerAxis()) > 0.1){
       return driver.getLeftTriggerAxis() - driver.getRightTriggerAxis();}
     else
       return 0.0;
