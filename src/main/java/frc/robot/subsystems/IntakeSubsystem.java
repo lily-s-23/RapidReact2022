@@ -30,7 +30,7 @@ public class IntakeSubsystem extends SubsystemBase {
         intake = new CANSparkMax(RobotMap.IntakeM, MotorType.kBrushless);
     }
     
-    public void intakeInitialize(double speed) {
+    public void intakeInitialize() {
         intakeArm.set(DoubleSolenoid.Value.kForward);
         //intake.set(speed);
     }

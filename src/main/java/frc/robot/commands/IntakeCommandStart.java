@@ -23,7 +23,7 @@ public class IntakeCommandStart extends InstantCommand {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    //m_intake.intakeInitialize(0.5);
-    Robot.Intake.intakeSpin(0.6);
+    Robot.Intake.intakeInitialize();
+    //Robot.Intake.intakeSpin(0.6);
   }
 }

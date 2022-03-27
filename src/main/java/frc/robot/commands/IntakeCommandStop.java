@@ -25,5 +25,7 @@ public class IntakeCommandStop extends InstantCommand {
   public void initialize() {
     //m_intake.intakeInitialize(0.5);
     Robot.Intake.intakeSpin(0.0);
+    Robot.Intake.intakeRetract(true);
+
   }
 }

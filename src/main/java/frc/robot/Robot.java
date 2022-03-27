@@ -105,7 +105,10 @@ public class Robot extends TimedRobot {
   @Override
   public void autonomousInit() {
 
-    String m_autoSelected = m_chooser.getSelected();
+    //String m_autoSelected = m_chooser.getSelected();
+    commandScheduler.schedule(new AutoSequence());
+    
+    /**
     
     switch (m_autoSelected) {
       case "Auto Drive":
@@ -121,8 +124,9 @@ public class Robot extends TimedRobot {
       default:
         commandScheduler.schedule(new AutoSequence());
     }
-
-    System.out.println("Auto selected: " + m_autoSelected);
+    */
+    
+    //System.out.println("Auto selected: " + m_autoSelected);
 
 
     //commandScheduler.schedule(new AutoSequence());

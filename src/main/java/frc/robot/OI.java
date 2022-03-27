@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.GenericHID;
 
 //Importing Commands
 import frc.robot.commands.DriveCommand;
+import frc.robot.commands.IntakeCommandStart;
 import frc.robot.commands.ClimberCommandMove;
 import frc.robot.commands.ConveyorBeltCommandForward;
 import frc.robot.commands.ConveyorBeltCommandToggle;
@@ -93,6 +94,10 @@ public class OI {
     // driverXButton.whenPressed(new ConveyorBeltCommandForward(Robot.conveyor));
     // driverXButton.whenReleased(new ConveyorBeltCommandStop(Robot.conveyor));
     driverLbump.whenPressed(new ConveyorBeltCommandToggle(Robot.conveyor));
+    
+    //button that brings out intake
+    //operatorAButton.whenPressed(new IntakeCommandStart(Robot.Intake));
+    //operatorBButton.whenPressed(new IntakeCommandStop(Robot.Intake));
     
     
     //driverXButton.whenPressed(new ConveyorBeltCommandForward(Robot.conveyor));
