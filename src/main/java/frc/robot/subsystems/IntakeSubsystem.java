@@ -15,6 +15,8 @@ import frc.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
+import edu.wpi.first.wpilibj2.command.WaitCommand;
+
 
 public class IntakeSubsystem extends SubsystemBase {
      // Put methods for controlling this subsystem
@@ -43,6 +45,7 @@ public class IntakeSubsystem extends SubsystemBase {
     }
 
     public void intakeSpin(double speed){
+        //WaitCommand()
         intake.set(speed);
         
     }

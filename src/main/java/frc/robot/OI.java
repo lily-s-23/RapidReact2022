@@ -19,6 +19,7 @@ import frc.robot.commands.ConveyorBeltCommandReverse;
 import frc.robot.commands.ConveyorBeltCommandStop;
 import frc.robot.commands.ConveyorBeltCommandToggle;
 import frc.robot.commands.IntakeCommandToggle;
+import frc.robot.commands.IntakeSequence;
 import frc.robot.subsystems.ConveyorBeltSubsystem;
 import frc.robot.commands.IntakeCommandStop;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
@@ -101,8 +102,13 @@ public class OI {
     driverLbump.whenPressed(new ConveyorBeltCommandToggle(Robot.conveyor));
     
     //button that brings out intake
-    driverYButton.whenPressed(new IntakeCommandStart(Robot.Intake));
+    //driverYButton.whenPressed(new IntakeCommandStart(Robot.Intake));
+    
+    //Button for intake that *hopefully* waits with to spin the wheels until intake is deployed
+    driverYButton.whenPressed(new IntakeSequence());
+    driverYButton.whenReleased(new IntakeCommandStop(Robot.Intake));
     //operatorBButton.whenPressed(new IntakeCommandStop(Robot.Intake));
+    
     operatorYButton.whenPressed(new ConveyorBeltCommandForward(Robot.conveyor));
     operatorYButton.whenReleased(new ConveyorBeltCommandStop(Robot.conveyor));
     

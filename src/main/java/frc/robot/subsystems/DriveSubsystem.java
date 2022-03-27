@@ -63,6 +63,11 @@ public class DriveSubsystem extends SubsystemBase {
   }
 
   public void ArcadeDrive(double speed, double turn) {
-    TankDrive(speed - turn, speed + turn);
+    if (speed > 0){
+      TankDrive((speed * speed) - turn, speed + turn);
+    } else if (speed < 0){
+      TankDrive((speed * speed * -1) - turn, speed + turn);
+    }
+      
   }
 }
