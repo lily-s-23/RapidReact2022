@@ -109,11 +109,11 @@ public class OI {
     driverYButton.whenReleased(new IntakeCommandStop(Robot.Intake));
     //operatorBButton.whenPressed(new IntakeCommandStop(Robot.Intake));
     
-    operatorYButton.whenPressed(new ConveyorBeltCommandForward(Robot.conveyor));
-    operatorYButton.whenReleased(new ConveyorBeltCommandStop(Robot.conveyor));
-    
-    operatorAButton.whenPressed(new ConveyorBeltCommandReverse(Robot.conveyor));
+    operatorAButton.whenPressed(new ConveyorBeltCommandForward(Robot.conveyor));
     operatorAButton.whenReleased(new ConveyorBeltCommandStop(Robot.conveyor));
+    
+    operatorBButton.whenPressed(new ConveyorBeltCommandReverse(Robot.conveyor));
+    operatorBButton.whenReleased(new ConveyorBeltCommandStop(Robot.conveyor));
     //driverXButton.whenPressed(new ConveyorBeltCommandForward(Robot.conveyor));
     //driverYButton.whenPressed(new ConveyorBeltCommandStop(Robot.conveyor));
 

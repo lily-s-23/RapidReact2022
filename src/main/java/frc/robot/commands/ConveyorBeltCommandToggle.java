@@ -33,7 +33,8 @@ public class ConveyorBeltCommandToggle extends InstantCommand {
       onOff = 0;
     }
     //m_intake.intakeInitialize(0.5);
-    Robot.conveyor.setMotorSpeedMove(speed * onOff);
+    Robot.conveyor.setMotorSpeedMove(
+      speed * onOff);
   }
   /**
   // Called every time the scheduler runs while the command is scheduled.
