@@ -10,10 +10,10 @@ import frc.robot.Robot;
 
 public class AutoShoot extends CommandBase {
   /** Creates a new AutoShoot. */
-  double startTime;
-  double endTime;
+  long startTime;
+  long endTime;
 
-  public AutoShoot(double time) {
+  public AutoShoot(long time) {
     // Use addRequirements() here to declare subsystem dependencies.
     //addRequirements(Robot.ConveyorBeltSubsystem);
     endTime = time;
