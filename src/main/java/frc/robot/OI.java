@@ -15,6 +15,7 @@ import frc.robot.commands.DriveCommand;
 import frc.robot.commands.IntakeCommandStart;
 import frc.robot.commands.ClimberCommandMove;
 import frc.robot.commands.ConveyorBeltCommandForward;
+import frc.robot.commands.ConveyorBeltCommandStop;
 import frc.robot.commands.ConveyorBeltCommandToggle;
 import frc.robot.commands.IntakeCommandToggle;
 import frc.robot.subsystems.ConveyorBeltSubsystem;
@@ -47,7 +48,8 @@ public class OI {
     public JoystickButton operatorXButton;
     public JoystickButton operatorYButton;
 
-    public JoystickButton operatorLbump;
+    public JoystickButton operatorRightTrigger;
+    public JoystickButton operatorLeftTrigger;
 
   /** Creates a new OI. */
   public OI() {
@@ -68,9 +70,6 @@ public class OI {
     operatorBButton = new JoystickButton(operator, 2);
     operatorXButton = new JoystickButton(operator, 3);
     operatorYButton = new JoystickButton(operator, 4);
-
-    operatorLbump = new JoystickButton(operator, 5);
-
     
     //Trigger endConveyorDetector = new Trigger(() -> conveyor.getBeamBrakeSensor);
     
@@ -90,7 +89,7 @@ public class OI {
     } else {
       System.out.println(driverAButton.getAsBoolean());
     }*/
-    operatorAButton.whenPressed(new ClimberCommandMove(Robot.climber));
+    driverAButton.whenPressed(new ClimberCommandMove(Robot.climber));
     
     // driverBButton.whenPressed(new IntakeCommandToggle(Robot.Intake));
     // driverBButton.whenReleased(new IntakeCommandStop(Robot.Intake));
@@ -98,11 +97,13 @@ public class OI {
     
     // driverXButton.whenPressed(new ConveyorBeltCommandForward(Robot.conveyor));
     // driverXButton.whenReleased(new ConveyorBeltCommandStop(Robot.conveyor));
-    operatorLbump.whenPressed(new ConveyorBeltCommandToggle(Robot.conveyor));
+    driverLbump.whenPressed(new ConveyorBeltCommandToggle(Robot.conveyor));
     
     //button that brings out intake
-    //driverYButton.whenPressed(new IntakeCommandStart(Robot.Intake));
+    driverYButton.whenPressed(new IntakeCommandStart(Robot.Intake));
     //operatorBButton.whenPressed(new IntakeCommandStop(Robot.Intake));
+    operatorYButton.whenPressed(new ConveyorBeltCommandForward(Robot.conveyor));
+    operatorYButton.whenReleased(new ConveyorBeltCommandStop(Robot.conveyor));
     
     
     //driverXButton.whenPressed(new ConveyorBeltCommandForward(Robot.conveyor));
