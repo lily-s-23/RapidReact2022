@@ -15,6 +15,7 @@ import frc.robot.commands.DriveCommand;
 import frc.robot.commands.IntakeCommandStart;
 import frc.robot.commands.ClimberCommandMove;
 import frc.robot.commands.ConveyorBeltCommandForward;
+import frc.robot.commands.ConveyorBeltCommandReverse;
 import frc.robot.commands.ConveyorBeltCommandStop;
 import frc.robot.commands.ConveyorBeltCommandToggle;
 import frc.robot.commands.IntakeCommandToggle;
@@ -105,7 +106,8 @@ public class OI {
     operatorYButton.whenPressed(new ConveyorBeltCommandForward(Robot.conveyor));
     operatorYButton.whenReleased(new ConveyorBeltCommandStop(Robot.conveyor));
     
-    
+    operatorAButton.whenPressed(new ConveyorBeltCommandReverse(Robot.conveyor));
+    operatorAButton.whenReleased(new ConveyorBeltCommandStop(Robot.conveyor));
     //driverXButton.whenPressed(new ConveyorBeltCommandForward(Robot.conveyor));
     //driverYButton.whenPressed(new ConveyorBeltCommandStop(Robot.conveyor));
 
