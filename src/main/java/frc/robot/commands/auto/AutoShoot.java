@@ -23,7 +23,7 @@ public class AutoShoot extends CommandBase {
   @Override
   public void initialize() {
     startTime = System.currentTimeMillis();
-    //endTime = endTime + startTime;
+    endTime = endTime + startTime;
   }
 
   // Called every time the scheduler runs while the command is scheduled.
