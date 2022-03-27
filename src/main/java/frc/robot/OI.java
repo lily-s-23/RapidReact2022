@@ -47,6 +47,8 @@ public class OI {
     public JoystickButton operatorXButton;
     public JoystickButton operatorYButton;
 
+    public JoystickButton operatorLbump;
+
   /** Creates a new OI. */
   public OI() {
     
@@ -66,6 +68,9 @@ public class OI {
     operatorBButton = new JoystickButton(operator, 2);
     operatorXButton = new JoystickButton(operator, 3);
     operatorYButton = new JoystickButton(operator, 4);
+
+    operatorLbump = new JoystickButton(operator, 5);
+
     
     //Trigger endConveyorDetector = new Trigger(() -> conveyor.getBeamBrakeSensor);
     
@@ -85,7 +90,7 @@ public class OI {
     } else {
       System.out.println(driverAButton.getAsBoolean());
     }*/
-    driverAButton.whenPressed(new ClimberCommandMove(Robot.climber));
+    operatorAButton.whenPressed(new ClimberCommandMove(Robot.climber));
     
     // driverBButton.whenPressed(new IntakeCommandToggle(Robot.Intake));
     // driverBButton.whenReleased(new IntakeCommandStop(Robot.Intake));
@@ -93,10 +98,10 @@ public class OI {
     
     // driverXButton.whenPressed(new ConveyorBeltCommandForward(Robot.conveyor));
     // driverXButton.whenReleased(new ConveyorBeltCommandStop(Robot.conveyor));
-    driverLbump.whenPressed(new ConveyorBeltCommandToggle(Robot.conveyor));
+    operatorLbump.whenPressed(new ConveyorBeltCommandToggle(Robot.conveyor));
     
     //button that brings out intake
-    driverYButton.whenPressed(new IntakeCommandStart(Robot.Intake));
+    //driverYButton.whenPressed(new IntakeCommandStart(Robot.Intake));
     //operatorBButton.whenPressed(new IntakeCommandStop(Robot.Intake));
     
     

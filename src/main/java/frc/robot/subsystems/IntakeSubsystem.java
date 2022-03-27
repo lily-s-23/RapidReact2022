@@ -29,7 +29,7 @@ public class IntakeSubsystem extends SubsystemBase {
     
     public IntakeSubsystem(){
         intake = new CANSparkMax(RobotMap.IntakeM, MotorType.kBrushless);
-        intakeArm =  new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 0, 1);
+        intakeArm =  new DoubleSolenoid(9, PneumaticsModuleType.CTREPCM, 0, 2);
         intakeArm.set(Value.kForward);
     }
     

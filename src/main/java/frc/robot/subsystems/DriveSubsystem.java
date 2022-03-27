@@ -32,7 +32,7 @@ public class DriveSubsystem extends SubsystemBase {
 
   public DriveSubsystem() {
 
-    double rampValue = 1.1; // Set the time in seconds for ramp up value (acceleration curve)
+    double rampValue = 0.4; // Set the time in seconds for ramp up value (acceleration curve)
 
     L1motor = new CANSparkMax(RobotMap.Left1, MotorType.kBrushless);
     L1encoder = L1motor.getEncoder();
