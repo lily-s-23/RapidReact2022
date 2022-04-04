@@ -44,6 +44,7 @@ public class ClimberSubsystem extends SubsystemBase {
 
   int direction = -1;
   double speed = 0.8;
+  double winchspeed = 0.4;
   
 
   public ClimberSubsystem() {
@@ -96,12 +97,14 @@ public class ClimberSubsystem extends SubsystemBase {
   }
 
   public double speedfromLimitSwitch2(){
-    double s = speed;
+    double s = winchspeed;
     if (limitSwitch2.get()){
-      s = Math.min(speed * direction, 0);
-      changeDirection();
+      s = 0;
+      //s = Math.min(speed * direction, 0);
+      //changeDirection();
     } else {
-      s = Math.max(speed * direction, 0);
+      s = winchspeed;
+      //s = Math.max(speed * direction, 0);
     }
     return s;
   }
