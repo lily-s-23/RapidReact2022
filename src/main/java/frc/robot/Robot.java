@@ -16,18 +16,17 @@ import edu.wpi.first.wpilibj.motorcontrol.Talon;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 
 import frc.robot.subsystems.DriveSubsystem;
-import frc.robot.commands.DriveCommand;
-import frc.robot.commands.EmergencyClimberStop;
 import frc.robot.subsystems.IntakeSubsystem;
-import frc.robot.commands.IntakeCommandToggle;
 import frc.robot.commands.auto.AutoDriveCommand;
 import frc.robot.commands.auto.AutoSequence;
+import frc.robot.commands.climber.ClimberCommandMove;
+import frc.robot.commands.climber.EmergencyClimberStop;
+import frc.robot.commands.conveyor.ConveyorBeltCommandReverse;
+import frc.robot.commands.conveyor.ConveyorBeltCommandToggle;
+import frc.robot.commands.drive.DriveCommand;
+import frc.robot.commands.intake.IntakeCommandToggle;
 import frc.robot.subsystems.ClimberSubsystem;
 import frc.robot.subsystems.ConveyorBeltSubsystem;
-//import frc.robot.commands.AutoDriveForward;
-import frc.robot.commands.ClimberCommandMove;
-import frc.robot.commands.ConveyorBeltCommandReverse;
-import frc.robot.commands.ConveyorBeltCommandToggle;
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.cscore.UsbCamera;
 
