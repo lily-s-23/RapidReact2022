@@ -71,12 +71,18 @@ public class ClimberSubsystem extends SubsystemBase {
 
   //continuously run when pressed
   
-
+  //may need to remove max/min due to negative values 
   public double speedfromLimitSwitch1(){
     double s = speed;
     if (limitSwitch1.get()){
-      s = Math.min(speed * direction, 0);
+      s = direction * Math.min(speed, 0);
+      if (direction == 1){
+        solenoid1.set(Value.kForward);
+
+      }
+      //s = Math.min(speed * direction, 0);
       changeDirection();
+      
       
       //return s;
       //solenoid1.set(Value.kForward);
@@ -112,13 +118,11 @@ public class ClimberSubsystem extends SubsystemBase {
   }
 
   
-  public void moveElevatorUp(double speed) {
+  public void moveElevator(double speed) {
     elevator.set(speed);
   }
 
-  public void moveElevatorDown(double speed){
-    elevator.set(-speed);
-  }
+
 
   public void gripBarS1(){
     solenoid1.set(Value.kForward);
