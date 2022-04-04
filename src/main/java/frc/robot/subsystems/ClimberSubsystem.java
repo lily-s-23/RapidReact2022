@@ -76,6 +76,7 @@ public class ClimberSubsystem extends SubsystemBase {
     double s = speed;
     if (limitSwitch1.get()){
       s = Math.min(speed * direction, 0);
+      changeDirection();
       
       //return s;
       //solenoid1.set(Value.kForward);
@@ -92,7 +93,7 @@ public class ClimberSubsystem extends SubsystemBase {
     double s = speed;
     if (limitSwitch2.get()){
       s = Math.min(speed * direction, 0);
-
+      changeDirection();
     } else {
       s = Math.max(speed * direction, 0);
     }
@@ -103,7 +104,7 @@ public class ClimberSubsystem extends SubsystemBase {
     double s = speed;
     if (limitSwitch3.get()){
       s = Math.min(speed * direction, 0);
-
+      changeDirection();
     } else {
       s = Math.max(speed * direction, 0);
     }
