@@ -2,37 +2,26 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-package frc.robot.commands.conveyor;
+package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import edu.wpi.first.wpilibj2.command.InstantCommand;
 import frc.robot.Robot;
-import frc.robot.subsystems.ConveyorBeltSubsystem;
 
-public class ConveyorBeltCommandForward extends InstantCommand {
-double speed;
-private final ConveyorBeltSubsystem m_conveyor;
-
-  /** Creates a new ConveyorBeltCommand. */
-  public ConveyorBeltCommandForward(ConveyorBeltSubsystem conveyor) {
-    m_conveyor = conveyor;
+public class DriveCommand extends CommandBase {
+  /** Creates a new DriveCommand. */
+  public DriveCommand() {
     // Use addRequirements() here to declare subsystem dependencies.
-    //addRequirements(conveyor);
-    //this.speed = 1;
+    addRequirements(Robot.DriveSubsystem);
   }
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {
-    Robot.conveyor.setMotorSpeedMove(0.5);
-  
-  }
+  public void initialize() {}
 
-  /**
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    //Robot.ConveyorBeltSubsystem.setMotorSpeed(speed);
+    Robot.DriveSubsystem.ArcadeDrive(Robot.OI.getSpeed(), Robot.OI.getTurn());
   }
 
   // Called once the command ends or is interrupted.
@@ -44,6 +33,4 @@ private final ConveyorBeltSubsystem m_conveyor;
   public boolean isFinished() {
     return false;
   }
-  */
-  //change
 }
