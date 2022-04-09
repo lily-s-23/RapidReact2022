@@ -13,7 +13,6 @@ public class ConveyorBeltCommandToggle extends InstantCommand {
   private final ConveyorBeltSubsystem m_conveyor;
   private static int onOff = 0;
   private static final double speed = 1.0;
-  
 
   /** Creates a new ConveyorBeltCommand. */
   public ConveyorBeltCommandToggle(ConveyorBeltSubsystem ConveyorBelt) {

@@ -2,16 +2,16 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-package frc.robot.commands.drive;
+package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
+import frc.robot.subsystems.ClimberSubsystem;
 
-public class DriveCommand extends CommandBase {
-  /** Creates a new DriveCommand. */
-  public DriveCommand() {
+public class moveuptoLevelTwo extends CommandBase {
+  /** Creates a new moveuptoLevelTwo. */
+  public moveuptoLevelTwo() {
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Robot.DriveSubsystem);
   }
 
   // Called when the command is initially scheduled.
@@ -21,7 +21,7 @@ public class DriveCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    Robot.DriveSubsystem.ArcadeDrive(Robot.OI.getSpeed(), Robot.OI.getTurn());
+    Robot.climber.rotateWinch(Robot.climber.speedfromLimitSwitch2());
   }
 
   // Called once the command ends or is interrupted.
