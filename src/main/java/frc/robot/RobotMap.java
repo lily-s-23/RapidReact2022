@@ -14,4 +14,8 @@ public class RobotMap {
     public static final int ConveyorM = 4;
 
     public static final int beamBrake = 0;
+
+    public static final int LimitS1 = 0;
+    public static final int LimitS2 = 1; 
+    public static final int LimitS3 = 2;
 }

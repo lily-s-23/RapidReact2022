@@ -9,19 +9,17 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 //import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import edu.wpi.first.wpilibj.GenericHID;
-
-//Importing Commands
-import frc.robot.commands.DriveCommand;
-import frc.robot.commands.IntakeCommandStart;
-import frc.robot.commands.ClimberCommandMove;
-import frc.robot.commands.ConveyorBeltCommandForward;
-import frc.robot.commands.ConveyorBeltCommandReverse;
-import frc.robot.commands.ConveyorBeltCommandStop;
-import frc.robot.commands.ConveyorBeltCommandToggle;
-import frc.robot.commands.IntakeCommandToggle;
-import frc.robot.commands.IntakeSequence;
+import frc.robot.commands.climber.ClimberCommandMove;
+import frc.robot.commands.conveyor.ConveyorBeltCommandForward;
+import frc.robot.commands.conveyor.ConveyorBeltCommandReverse;
+import frc.robot.commands.conveyor.ConveyorBeltCommandStop;
+import frc.robot.commands.conveyor.ConveyorBeltCommandToggle;
+import frc.robot.commands.drive.DriveCommand;
+import frc.robot.commands.intake.IntakeCommandStart;
+import frc.robot.commands.intake.IntakeCommandStop;
+import frc.robot.commands.intake.IntakeCommandToggle;
+import frc.robot.commands.intake.IntakeSequence;
 import frc.robot.subsystems.ConveyorBeltSubsystem;
-import frc.robot.commands.IntakeCommandStop;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 

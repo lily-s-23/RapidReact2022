@@ -2,20 +2,19 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-package frc.robot.commands;
+package frc.robot.commands.conveyor;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import frc.robot.Robot;
 import frc.robot.subsystems.ConveyorBeltSubsystem;
 
-public class ConveyorBeltCommandToggle extends InstantCommand {
+public class ConveyorBeltCommandStop extends InstantCommand {
+double speed;
   private final ConveyorBeltSubsystem m_conveyor;
-  private static int onOff = 0;
-  private static final double speed = 1.0;
 
   /** Creates a new ConveyorBeltCommand. */
-  public ConveyorBeltCommandToggle(ConveyorBeltSubsystem ConveyorBelt) {
+  public ConveyorBeltCommandStop(ConveyorBeltSubsystem ConveyorBelt) {
     // Use addRequirements() here to declare subsystem dependencies.
     m_conveyor = ConveyorBelt;
     //addRequirements(m_conveyor);
@@ -25,16 +24,7 @@ public class ConveyorBeltCommandToggle extends InstantCommand {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    if (onOff == 0) {
-      onOff = 1;
-    } else if (onOff == 1){
-      onOff = 0;
-    } else if (ConveyorBeltSubsystem.getBeamBrakeSensor() == true){
-      onOff = 0;
-    }
-    //m_intake.intakeInitialize(0.5);
-    Robot.conveyor.setMotorSpeedMove(
-      speed * onOff);
+    Robot.conveyor.setMotorSpeedMove(0.0);
   }
   /**
   // Called every time the scheduler runs while the command is scheduled.

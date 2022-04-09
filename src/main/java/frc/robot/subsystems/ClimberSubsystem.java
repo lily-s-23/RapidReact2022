@@ -44,6 +44,7 @@ public class ClimberSubsystem extends SubsystemBase {
 
   int direction = -1;
   double speed = 0.8;
+  double winchspeed = 0.4;
   
 
   public ClimberSubsystem() {
@@ -55,9 +56,9 @@ public class ClimberSubsystem extends SubsystemBase {
     elevatorTopSwitch = new DigitalInput(1);
     elevatorBottomSwitch = new DigitalInput(2);
     
-    // limitSwitch1 = new DigitalInput(4);
-    // limitSwitch2 = new DigitalInput(5);
-    // limitSwitch3 = new DigitalInput(6); 
+    limitSwitch1 = new DigitalInput(RobotMap.LimitS1);
+    limitSwitch2 = new DigitalInput(RobotMap.LimitS2);
+    limitSwitch3 = new DigitalInput(RobotMap.LimitS3); 
 
     // thread = new Thread();
     // thread.start();
@@ -70,21 +71,90 @@ public class ClimberSubsystem extends SubsystemBase {
   }
 
   //continuously run when pressed
-  /*
-  public void run(){
+  
+  //may need to remove max/min due to negative values 
+  public double speedfromLimitSwitch1(){
     double s = speed;
-    if (elevatorTopSwitch.get()){
-      s = Math.min(speed * direction, 0);
-    } else if (elevatorBottomSwitch.get()) {
+    if (limitSwitch1.get()){
+      s = direction * Math.min(speed, 0);
+      if (direction == 1){
+        solenoid1.set(Value.kForward);
+
+      }
+      //s = Math.min(speed * direction, 0);
+      changeDirection();
+      
+      
+      //return s;
+      //solenoid1.set(Value.kForward);
+      //elevator.set(-s);
+      //winch.set(ControlMode.PercentOutput, 25);
+
+    } else {
       s = Math.max(speed * direction, 0);
     }
-    elevator.set(s);
+    return s;
   }
-  */
-  public void moveUp(double speed) {
+
+  public double speedfromLimitSwitch2(){
+    double s = winchspeed;
+    if (limitSwitch2.get()){
+      s = 0;
+      //s = Math.min(speed * direction, 0);
+      //changeDirection();
+    } else {
+      s = winchspeed;
+      //s = Math.max(speed * direction, 0);
+    }
+    return s;
+  }
+
+  public double speedfromLimitSwitch3(){
+    double s = speed;
+    if (limitSwitch3.get()){
+      s = Math.min(speed * direction, 0);
+      changeDirection();
+    } else {
+      s = Math.max(speed * direction, 0);
+    }
+    return s;
+  }
+
+  
+  public void moveElevator(double speed) {
     elevator.set(speed);
   }
 
+
+
+  public void gripBarS1(){
+    solenoid1.set(Value.kForward);
+  }
+
+  public void gripBarS2(){
+    solenoid2.set(Value.kForward);
+  }
+
+  public void gripBarS3(){
+    solenoid3.set(Value.kForward);
+  }
+
+  public void releaseBar1(){
+    solenoid1.set(Value.kReverse);
+  }
+
+  public void releaseBar2(){
+    solenoid2.set(Value.kReverse);
+  }
+
+  public void releaseBar3(){
+    solenoid3.set(Value.kReverse);
+  }
+
+  //rotate's the winch one level
+  public void rotateWinch(double speed){
+    winch.set(ControlMode.PercentOutput, speed);
+  }
 
   /*
   public void climbLevelOne(double speedofElevator){
