@@ -27,19 +27,19 @@ public class IntakeSubsystem extends SubsystemBase {
     //public DoubleSolenoid intakeArm =  new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 0, 1);
 
     CANSparkMax intake;
-    Solenoid intakeArm;
+    DoubleSolenoid intakeArm;
 
     //double speed = 0.3;
     
     public IntakeSubsystem(){
         intake = new CANSparkMax(RobotMap.IntakeM, MotorType.kBrushless);
-        intakeArm =  new Solenoid( PneumaticsModuleType.CTREPCM, 0);
-        intakeArm.set(false);
+        intakeArm =  new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 0, 1);
+        //intakeArm.set(Value.k);
     }
     
     public void intakeInitialize() {
         //intakeArm.set(Value.kForward);
-        intakeArm.set(true);
+        intakeArm.set(Value.kForward);
         //intake.set(speed);
     }
 
@@ -55,7 +55,7 @@ public class IntakeSubsystem extends SubsystemBase {
 
     
     public void intakeRetract(boolean retract){
-        //intakeArm.set(Value.kForward);
+        intakeArm.set(Value.kForward);
     }
 
     
