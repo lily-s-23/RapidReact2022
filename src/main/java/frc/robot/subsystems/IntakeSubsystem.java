@@ -14,6 +14,8 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.Solenoid;
+
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
 
@@ -25,18 +27,19 @@ public class IntakeSubsystem extends SubsystemBase {
     //public DoubleSolenoid intakeArm =  new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 0, 1);
 
     CANSparkMax intake;
-    DoubleSolenoid intakeArm;
+    Solenoid intakeArm;
 
     //double speed = 0.3;
     
     public IntakeSubsystem(){
         intake = new CANSparkMax(RobotMap.IntakeM, MotorType.kBrushless);
-        intakeArm =  new DoubleSolenoid(9, PneumaticsModuleType.CTREPCM, 0, 2);
-        intakeArm.set(Value.kForward);
+        intakeArm =  new Solenoid( PneumaticsModuleType.CTREPCM, 0);
+        intakeArm.set(false);
     }
     
     public void intakeInitialize() {
-        intakeArm.set(Value.kForward);
+        //intakeArm.set(Value.kForward);
+        intakeArm.set(true);
         //intake.set(speed);
     }
 
@@ -52,7 +55,7 @@ public class IntakeSubsystem extends SubsystemBase {
 
     
     public void intakeRetract(boolean retract){
-        intakeArm.set(Value.kForward);
+        //intakeArm.set(Value.kForward);
     }
 
     

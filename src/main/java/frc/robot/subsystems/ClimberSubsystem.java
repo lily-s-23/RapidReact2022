@@ -56,9 +56,9 @@ public class ClimberSubsystem extends SubsystemBase {
     elevatorTopSwitch = new DigitalInput(1);
     elevatorBottomSwitch = new DigitalInput(2);
     
-    limitSwitch1 = new DigitalInput(RobotMap.LimitS1);
-    limitSwitch2 = new DigitalInput(RobotMap.LimitS2);
-    limitSwitch3 = new DigitalInput(RobotMap.LimitS3); 
+    limitSwitch1 = new DigitalInput(3);
+    limitSwitch2 = new DigitalInput(4);
+    limitSwitch3 = new DigitalInput(5); 
 
     // thread = new Thread();
     // thread.start();

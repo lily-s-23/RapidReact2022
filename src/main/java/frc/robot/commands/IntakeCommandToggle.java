@@ -29,13 +29,14 @@ public class IntakeCommandToggle extends InstantCommand {
   public void initialize() {
     if (onOff == 0) {
       onOff = 1;
+      Robot.Intake.intakeInitialize();
       // Robot.Intake.intakeInitialize();
     } else if (onOff == 1) {
       onOff = 0;
       //Robot.Intake.intakeRetract(true);
     }
     //m_intake.intakeInitialize(0.5);
-    Robot.Intake.intakeSpin(speed * onOff);
+    Robot.Intake.intakeSpin(-speed * onOff);
     Robot.Intake.intakeToggle();
   }
 }

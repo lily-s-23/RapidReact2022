@@ -17,14 +17,14 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
 
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
+import frc.robot.commands.auto.AutoDriveCommand;
+import frc.robot.commands.auto.AutoSequence;
 import frc.robot.commands.ClimberCommandMove;
+import frc.robot.commands.EmergencyClimberStop;
 import frc.robot.commands.ConveyorBeltCommandReverse;
 import frc.robot.commands.ConveyorBeltCommandToggle;
 import frc.robot.commands.DriveCommand;
-import frc.robot.commands.EmergencyClimberStop;
 import frc.robot.commands.IntakeCommandToggle;
-import frc.robot.commands.auto.AutoDriveCommand;
-import frc.robot.commands.auto.AutoSequence;
 import frc.robot.subsystems.ClimberSubsystem;
 import frc.robot.subsystems.ConveyorBeltSubsystem;
 import edu.wpi.first.cameraserver.CameraServer;
