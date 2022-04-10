@@ -34,6 +34,7 @@ public class DriveSubsystem extends SubsystemBase {
 
     double rampValue = 0.4; // Set the time in seconds for ramp up value (acceleration curve)
 
+
     L1motor = new CANSparkMax(RobotMap.Left1, MotorType.kBrushless);
     L1encoder = L1motor.getEncoder();
     L1controller = L1motor.getPIDController();
@@ -62,7 +63,14 @@ public class DriveSubsystem extends SubsystemBase {
     R2motor.set(right);
   }
 
-  public void ArcadeDrive(double speed, double turn) {
-      TankDrive((speed) - turn, speed + turn);
+  public double speedRamp(double speed){
+    return 0.2*(Math.pow(speed, 3))+0.8*(Math.pow(speed, 2));
+
   }
+  public void ArcadeDrive(double speed, double turn) {  
+    //speed = speedRamp(speed);
+    TankDrive((speed) - turn, speed + turn);
+  }
+
+
 }
