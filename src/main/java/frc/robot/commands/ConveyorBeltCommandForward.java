@@ -24,7 +24,7 @@ private final ConveyorBeltSubsystem m_conveyor;
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    Robot.conveyor.setMotorSpeedMove(0.5);
+    Robot.conveyor.setMotorSpeedMove(0.85);
   
   }
 
