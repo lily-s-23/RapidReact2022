@@ -32,28 +32,33 @@ public class DriveSubsystem extends SubsystemBase {
 
   public DriveSubsystem() {
 
-    double rampValue = 0.4; // Set the time in seconds for ramp up value (acceleration curve)
+    double rampValue = 0.2; // Set the time in seconds for ramp up value (acceleration curve)
 
 
     L1motor = new CANSparkMax(RobotMap.Left1, MotorType.kBrushless);
     L1encoder = L1motor.getEncoder();
     L1controller = L1motor.getPIDController();
     L1motor.setOpenLoopRampRate(rampValue);
+    L1motor.burnFlash();
 
     L2motor = new CANSparkMax(RobotMap.Left2, MotorType.kBrushless);
     L2encoder = L2motor.getEncoder();
     L2controller = L2motor.getPIDController();
     L2motor.setOpenLoopRampRate(rampValue);
+    L2motor.burnFlash();
+    
 
     R1motor = new CANSparkMax(RobotMap.Right1, MotorType.kBrushless);
     R1encoder = R1motor.getEncoder();
     R1controller = R1motor.getPIDController();
     R1motor.setOpenLoopRampRate(rampValue);
+    R1motor.burnFlash();
 
     R2motor = new CANSparkMax(RobotMap.Right2, MotorType.kBrushless);
     R2encoder = R2motor.getEncoder();
     R2controller = R2motor.getPIDController();
     R2motor.setOpenLoopRampRate(rampValue);
+    R2motor.burnFlash();
   }
 
   public void TankDrive(double left, double right) {
@@ -63,12 +68,17 @@ public class DriveSubsystem extends SubsystemBase {
     R2motor.set(right);
   }
 
+  /**
+  
   public double speedRamp(double speed){
     return 0.2*(Math.pow(speed, 3))+0.8*(Math.pow(speed, 2));
 
   }
+  */
+  
   public void ArcadeDrive(double speed, double turn) {  
     //speed = speedRamp(speed);
+    turn = turn * 0.75;
     TankDrive((speed) - turn, speed + turn);
   }
 

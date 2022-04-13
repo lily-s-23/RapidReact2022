@@ -19,8 +19,12 @@ import frc.robot.commands.IntakeCommandStart;
 import frc.robot.commands.IntakeCommandStop;
 import frc.robot.commands.IntakeCommandToggle;
 import frc.robot.commands.IntakeSequence;
+import frc.robot.commands.intakeCommandSpin;
+import frc.robot.commands.intakeSpinStop;
 import frc.robot.subsystems.ConveyorBeltSubsystem;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
+import frc.robot.commands.intakeCommandSpin;
+import frc.robot.commands.intakeSpinStop;
 
 
 
@@ -112,6 +116,10 @@ public class OI {
     
     operatorBButton.whenPressed(new ConveyorBeltCommandReverse(Robot.conveyor));
     operatorBButton.whenReleased(new ConveyorBeltCommandStop(Robot.conveyor));
+    
+    
+    //operatorYButton.whenPressed(new intakeCommandSpin(Robot.Intake));
+    //operatorYButton.whenReleased(new intakeSpinStop(Robot.Intake));
     //driverXButton.whenPressed(new ConveyorBeltCommandForward(Robot.conveyor));
     //driverYButton.whenPressed(new ConveyorBeltCommandStop(Robot.conveyor));
 
@@ -121,7 +129,7 @@ public class OI {
 
   // method that takes speed to go forwards or backwards from bumpers of controller depending on how hard driver presses
   public double getSpeed() {
-    if (Math.abs(driver.getLeftTriggerAxis() - driver.getRightTriggerAxis()) > 0.75){
+    if (Math.abs(driver.getLeftTriggerAxis() - driver.getRightTriggerAxis()) > 0.1){
       //double driverspeed  = driver.getLeftTriggerAxis() - driver.getRightTriggerAxis();
       //return speedRamp(driverspeed);
       return driver.getLeftTriggerAxis() - driver.getRightTriggerAxis();}
@@ -133,7 +141,7 @@ public class OI {
 
   // method that allows for joystick control to determine turns to left/right
   public double getTurn() {
-    if (Math.abs(driver.getRawAxis(0)) > 0.15) {
+    if (Math.abs(driver.getRawAxis(0)) > 0.1) {
       return driver.getRawAxis(0);
     } else {
       return 0.0;

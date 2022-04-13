@@ -27,16 +27,19 @@ public class IntakeCommandToggle extends InstantCommand {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
+    Robot.Intake.intakeSpin(-speed * onOff);
+
     if (onOff == 0) {
       onOff = 1;
       //Robot.Intake.intakeInitialize();
       // Robot.Intake.intakeInitialize();
+      Robot.Intake.intakeRetract();
     } else if (onOff == 1) {
       onOff = 0;
-      //Robot.Intake.intakeRetract(true);
+      Robot.Intake.intakeOff();
     }
     //m_intake.intakeInitialize(0.5);
-    Robot.Intake.intakeSpin(-speed * onOff);
-    Robot.Intake.intakeToggle();
+    //Robot.Intake.intakeSpin(-speed * onOff);
+    // Robot.Intake.intakeToggle();
   }
 }

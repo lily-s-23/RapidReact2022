@@ -33,7 +33,7 @@ public class IntakeSubsystem extends SubsystemBase {
     
     public IntakeSubsystem(){
         intake = new CANSparkMax(RobotMap.IntakeM, MotorType.kBrushless);
-        intakeArm =  new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 0, 1);
+        intakeArm =  new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 0, 2);
         //intakeArm.set(Value.k);
     }
     
@@ -54,7 +54,11 @@ public class IntakeSubsystem extends SubsystemBase {
     }
 
     
-    public void intakeRetract(boolean retract){
+    public void intakeRetract(){
+        intakeArm.set(Value.kReverse);
+    }
+
+    public void intakeOff(){
         intakeArm.set(Value.kForward);
     }
 
