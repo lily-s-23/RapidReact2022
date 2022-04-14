@@ -6,9 +6,9 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-public class intakeSpinStop extends CommandBase {
-  /** Creates a new intakeSpinStop. */
-  public intakeSpinStop() {
+public class IntakeReverseSpin extends CommandBase {
+  /** Creates a new IntakeReverseSpin. */
+  public IntakeReverseSpin() {
     // Use addRequirements() here to declare subsystem dependencies.
   }
 
