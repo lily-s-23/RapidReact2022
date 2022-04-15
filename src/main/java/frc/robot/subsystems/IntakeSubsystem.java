@@ -7,7 +7,9 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 
+import com.ctre.phoenix.motorcontrol.TalonFXControlMode;
 import com.ctre.phoenix.motorcontrol.TalonSRXControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonFX;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
@@ -28,13 +30,13 @@ public class IntakeSubsystem extends SubsystemBase {
     
     //public DoubleSolenoid intakeArm =  new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 0, 1);
 
-    TalonSRX intake;
+    TalonFX intake;
     DoubleSolenoid intakeArm;
 
     //double speed = 0.3;
     
     public IntakeSubsystem(){
-        intake = new TalonSRX(RobotMap.IntakeM);
+        intake = new TalonFX(RobotMap.IntakeM);
         intakeArm =  new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 0, 2);
         //intakeArm.set(Value.k);
     }
@@ -51,7 +53,7 @@ public class IntakeSubsystem extends SubsystemBase {
 
     public void intakeSpin(double speed){
         //WaitCommand()
-        intake.set(TalonSRXControlMode.PercentOutput, speed);
+        intake.set(TalonFXControlMode.PercentOutput, speed);
         
     }
 

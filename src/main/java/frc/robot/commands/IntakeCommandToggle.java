@@ -16,7 +16,7 @@ public class IntakeCommandToggle extends InstantCommand {
   /** Creates a new IntakeCommand. */
   private final IntakeSubsystem m_intake;
   private static int onOff = 0;
-  private static final double speed = 0.70;
+  private static final double speed = 1.0;
 
   public IntakeCommandToggle(IntakeSubsystem intake) {
     // Use addRequirements() here to declare subsystem dependencies.
