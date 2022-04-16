@@ -107,8 +107,8 @@ public class OI {
     //driverYButton.whenPressed(new IntakeCommandStart(Robot.Intake));
     
     //Button for intake that *hopefully* waits with to spin the wheels until intake is deployed
-    driverYButton.whenPressed(new IntakeSequence());
-    driverYButton.whenReleased(new IntakeCommandStop(Robot.Intake));
+    //driverYButton.whenPressed(new IntakeSequence());
+    //driverYButton.whenReleased(new IntakeCommandStop(Robot.Intake));
     //operatorBButton.whenPressed(new IntakeCommandStop(Robot.Intake));
     
     operatorAButton.whenPressed(new ConveyorBeltCommandForward(Robot.conveyor));
@@ -117,6 +117,9 @@ public class OI {
     operatorBButton.whenPressed(new ConveyorBeltCommandReverse(Robot.conveyor));
     operatorBButton.whenReleased(new ConveyorBeltCommandStop(Robot.conveyor));
     
+
+
+
     
     //operatorYButton.whenPressed(new intakeCommandSpin(Robot.Intake));
     //operatorYButton.whenReleased(new intakeSpinStop(Robot.Intake));
