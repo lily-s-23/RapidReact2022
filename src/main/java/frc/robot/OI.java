@@ -18,13 +18,12 @@ import frc.robot.commands.DriveCommand;
 import frc.robot.commands.IntakeCommandStart;
 import frc.robot.commands.IntakeCommandStop;
 import frc.robot.commands.IntakeCommandToggle;
-import frc.robot.commands.IntakeSequence;
 import frc.robot.commands.intakeCommandSpin;
-import frc.robot.commands.intakeSpinStop;
+import frc.robot.commands.intakeOut;
+import frc.robot.commands.intakeIn;
 import frc.robot.subsystems.ConveyorBeltSubsystem;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.commands.intakeCommandSpin;
-import frc.robot.commands.intakeSpinStop;
 
 
 
@@ -51,6 +50,8 @@ public class OI {
     public JoystickButton operatorBButton;
     public JoystickButton operatorXButton;
     public JoystickButton operatorYButton;
+    public JoystickButton operatorLbump;
+    public JoystickButton operatorRbump;
 
     public JoystickButton operatorRightTrigger;
     public JoystickButton operatorLeftTrigger;
@@ -74,58 +75,30 @@ public class OI {
     operatorBButton = new JoystickButton(operator, 2);
     operatorXButton = new JoystickButton(operator, 3);
     operatorYButton = new JoystickButton(operator, 4);
+    operatorLbump = new JoystickButton(operator, 5);
+    operatorRbump = new JoystickButton(operator, 6);
     
     //Trigger endConveyorDetector = new Trigger(() -> conveyor.getBeamBrakeSensor);
     
     
-    // driverBButton.whileHeld(new ConveyorBeltCommandForward(Robot.ConveyorBelt));
-    // ==driverXButton.whileHeld(new ConveyorBeltCommandStop(Robot.ConveyorBelt));
-    // driverAButton.whileHeld(new IntakeCommand());
-
-    //If operators x button and operator y button pressed complete release function that then goes into third climb
-      //if these two buttons are pressed again then release into third climb
- 
-    //operatorAButton.whileHeld(new Co  nveyorBeltCommand());
-    /*
-    if (driverAButton.getAsBoolean()){
-      new ClimberCommandMove(Robot.climber);
-      System.out.println("button pressed");
-    } else {
-      System.out.println(driverAButton.getAsBoolean());
-    }*/
     driverAButton.whenPressed(new ClimberCommandMove(Robot.climber));
-    
-
-    // driverBButton.whenPressed(new IntakeCommandToggle(Robot.Intake));
-    // driverBButton.whenReleased(new IntakeCommandStop(Robot.Intake));
     driverRbump.whenPressed(new IntakeCommandToggle(Robot.Intake));
-    
-
-    // driverXButton.whenPressed(new ConveyorBeltCommandForward(Robot.conveyor));
-    // driverXButton.whenReleased(new ConveyorBeltCommandStop(Robot.conveyor));
     driverLbump.whenPressed(new ConveyorBeltCommandToggle(Robot.conveyor));
-    
-    driverXButton.whenPressed(new intakeCommandSpin(Robot.Intake));
-    driverXButton.whenReleased(new IntakeCommandStop(Robot.Intake));
-    //button that brings out intake
-    //driverYButton.whenPressed(new IntakeCommandStart(Robot.Intake));
-    
-    //Button for intake that *hopefully* waits with to spin the wheels until intake is deployed
-    driverYButton.whenPressed(new IntakeSequence());
-    driverYButton.whenReleased(new IntakeCommandStop(Robot.Intake));
-    //operatorBButton.whenPressed(new IntakeCommandStop(Robot.Intake));
+
+
     
     operatorAButton.whenPressed(new ConveyorBeltCommandForward(Robot.conveyor));
     operatorAButton.whenReleased(new ConveyorBeltCommandStop(Robot.conveyor));
-    
     operatorBButton.whenPressed(new ConveyorBeltCommandReverse(Robot.conveyor));
     operatorBButton.whenReleased(new ConveyorBeltCommandStop(Robot.conveyor));
     
-    
-    //operatorYButton.whenPressed(new intakeCommandSpin(Robot.Intake));
-    //operatorYButton.whenReleased(new intakeSpinStop(Robot.Intake));
-    //driverXButton.whenPressed(new ConveyorBeltCommandForward(Robot.conveyor));
-    //driverYButton.whenPressed(new ConveyorBeltCommandStop(Robot.conveyor));
+
+    operatorXButton.whenPressed(new intakeOut(Robot.Intake));
+    operatorXButton.whenReleased(new intakeIn(Robot.Intake));
+
+    operatorLbump.whileHeld(new intakeCommandSpin(Robot.Intake));
+    operatorLbump.whenReleased(new IntakeCommandStop(Robot.Intake));
+
 
   }
 
@@ -134,8 +107,6 @@ public class OI {
   // method that takes speed to go forwards or backwards from bumpers of controller depending on how hard driver presses
   public double getSpeed() {
     if (Math.abs(driver.getLeftTriggerAxis() - driver.getRightTriggerAxis()) > 0.04){
-      //double driverspeed  = driver.getLeftTriggerAxis() - driver.getRightTriggerAxis();
-      //return speedRamp(driverspeed);
       return driver.getLeftTriggerAxis() - driver.getRightTriggerAxis();}
     else
       return 0.0;
@@ -152,5 +123,4 @@ public class OI {
     }
   }
 
-  //method that takes speed for conveyor belt from second controller triggers
 }

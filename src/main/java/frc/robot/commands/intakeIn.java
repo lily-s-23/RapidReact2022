@@ -4,26 +4,26 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import frc.robot.Robot;
 import frc.robot.subsystems.IntakeSubsystem;
 
-
-public class IntakeCommandStop extends InstantCommand {
-  /** Creates a new IntakeCommand. */
+// NOTE:  Consider using this command inline, rather than writing a subclass.  For more
+// information, see:
+// https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html
+public class intakeIn extends InstantCommand {
   private final IntakeSubsystem m_intake;
 
-  public IntakeCommandStop(IntakeSubsystem intake) {
+  public intakeIn(IntakeSubsystem intake) {
     // Use addRequirements() here to declare subsystem dependencies.
     m_intake = intake;
-    //addRequirements(intake);
+
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    //m_intake.intakeInitialize(0.5);
-    Robot.Intake.intakeSpin(0.0);
+    Robot.Intake.intakeRetract();
+
   }
 }

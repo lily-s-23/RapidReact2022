@@ -7,9 +7,7 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 
-import com.ctre.phoenix.motorcontrol.TalonFXControlMode;
 import com.ctre.phoenix.motorcontrol.TalonSRXControlMode;
-import com.ctre.phoenix.motorcontrol.can.TalonFX;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
@@ -30,13 +28,13 @@ public class IntakeSubsystem extends SubsystemBase {
     
     //public DoubleSolenoid intakeArm =  new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 0, 1);
 
-    TalonFX intake;
+    TalonSRX intake;
     DoubleSolenoid intakeArm;
 
     //double speed = 0.3;
     
     public IntakeSubsystem(){
-        intake = new TalonFX(RobotMap.IntakeM);
+        intake = new TalonSRX(RobotMap.IntakeM);
         intakeArm =  new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 0, 2);
         //intakeArm.set(Value.k);
     }
@@ -47,24 +45,25 @@ public class IntakeSubsystem extends SubsystemBase {
         //intake.set(speed);
     }
 
+    public void intakeRetract(){
+        intakeArm.set(Value.kReverse);
+    }  
+    
+    public void intakeSpin(double speed){
+        intake.set(TalonSRXControlMode.PercentOutput, speed);  
+    }
+
+     
+    //Not being used currently
+    /** 
     public void intakeToggle() {
         intakeArm.toggle();
     }
+    */
 
-    public void intakeSpin(double speed){
-        //WaitCommand()
-        intake.set(TalonFXControlMode.PercentOutput, speed);
-        
-    }
-
+  
     
-    public void intakeRetract(){
-        intakeArm.set(Value.kReverse);
-    }
 
-    public void intakeOut(){
-        intakeArm.set(Value.kForward);
-    }
 
     
     @Override

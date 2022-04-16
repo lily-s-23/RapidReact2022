@@ -14,10 +14,10 @@ import frc.robot.subsystems.IntakeSubsystem;
 // https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html
 public class intakeCommandSpin extends InstantCommand {
   private final IntakeSubsystem m_intake;
-  public intakeCommandSpin(IntakeSubsystem intake) {
-    m_intake = intake;
 
+  public intakeCommandSpin(IntakeSubsystem intake) {
     // Use addRequirements() here to declare subsystem dependencies.
+    m_intake = intake;
   }
 
   // Called when the command is initially scheduled.
