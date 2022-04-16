@@ -17,10 +17,13 @@ public class intakeIn extends InstantCommand {
   public intakeIn(IntakeSubsystem intake) {
     // Use addRequirements() here to declare subsystem dependencies.
     m_intake = intake;
-    Robot.Intake.intakeRetract();
+
   }
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
+  public void initialize() {
+    Robot.Intake.intakeRetract();
+
+  }
 }

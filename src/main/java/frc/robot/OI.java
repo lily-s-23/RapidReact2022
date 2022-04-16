@@ -19,11 +19,11 @@ import frc.robot.commands.IntakeCommandStart;
 import frc.robot.commands.IntakeCommandStop;
 import frc.robot.commands.IntakeCommandToggle;
 import frc.robot.commands.intakeCommandSpin;
-import frc.robot.commands.intakeSpinStop;
+import frc.robot.commands.intakeOut;
+import frc.robot.commands.intakeIn;
 import frc.robot.subsystems.ConveyorBeltSubsystem;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.commands.intakeCommandSpin;
-import frc.robot.commands.intakeSpinStop;
 
 
 
@@ -50,6 +50,8 @@ public class OI {
     public JoystickButton operatorBButton;
     public JoystickButton operatorXButton;
     public JoystickButton operatorYButton;
+    public JoystickButton operatorLbump;
+    public JoystickButton operatorRbump;
 
     public JoystickButton operatorRightTrigger;
     public JoystickButton operatorLeftTrigger;
@@ -73,6 +75,8 @@ public class OI {
     operatorBButton = new JoystickButton(operator, 2);
     operatorXButton = new JoystickButton(operator, 3);
     operatorYButton = new JoystickButton(operator, 4);
+    operatorLbump = new JoystickButton(operator, 5);
+    operatorRbump = new JoystickButton(operator, 6);
     
     //Trigger endConveyorDetector = new Trigger(() -> conveyor.getBeamBrakeSensor);
     
@@ -81,12 +85,20 @@ public class OI {
     driverRbump.whenPressed(new IntakeCommandToggle(Robot.Intake));
     driverLbump.whenPressed(new ConveyorBeltCommandToggle(Robot.conveyor));
 
+
     
     operatorAButton.whenPressed(new ConveyorBeltCommandForward(Robot.conveyor));
     operatorAButton.whenReleased(new ConveyorBeltCommandStop(Robot.conveyor));
     operatorBButton.whenPressed(new ConveyorBeltCommandReverse(Robot.conveyor));
     operatorBButton.whenReleased(new ConveyorBeltCommandStop(Robot.conveyor));
     
+
+    operatorXButton.whenPressed(new intakeOut(Robot.Intake));
+    operatorXButton.whenReleased(new intakeIn(Robot.Intake));
+
+    operatorLbump.whileHeld(new intakeCommandSpin(Robot.Intake));
+    operatorLbump.whenReleased(new IntakeCommandStop(Robot.Intake));
+
 
   }
 
