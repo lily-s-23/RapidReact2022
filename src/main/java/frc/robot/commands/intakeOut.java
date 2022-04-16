@@ -5,12 +5,19 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.InstantCommand;
+import frc.robot.Robot;
+import frc.robot.subsystems.IntakeSubsystem;
 
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
 // https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html
 public class intakeOut extends InstantCommand {
-  public intakeOut() {
+  private final IntakeSubsystem m_intake;
+
+  public intakeOut(IntakeSubsystem intake) {
+    m_intake = intake;
+    Robot.Intake.intakeInitialize();
+
     // Use addRequirements() here to declare subsystem dependencies.
   }
 

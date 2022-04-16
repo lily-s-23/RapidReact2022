@@ -45,24 +45,25 @@ public class IntakeSubsystem extends SubsystemBase {
         //intake.set(speed);
     }
 
+    public void intakeRetract(){
+        intakeArm.set(Value.kReverse);
+    }  
+    
+    public void intakeSpin(double speed){
+        intake.set(TalonSRXControlMode.PercentOutput, speed);  
+    }
+
+     
+    //Not being used currently
+    /** 
     public void intakeToggle() {
         intakeArm.toggle();
     }
+    */
 
-    public void intakeSpin(double speed){
-        //WaitCommand()
-        intake.set(TalonSRXControlMode.PercentOutput, speed);
-        
-    }
-
+  
     
-    public void intakeRetract(){
-        intakeArm.set(Value.kReverse);
-    }
 
-    public void intakeOff(){
-        intakeArm.set(Value.kForward);
-    }
 
     
     @Override

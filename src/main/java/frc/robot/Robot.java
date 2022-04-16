@@ -20,7 +20,6 @@ import frc.robot.subsystems.IntakeSubsystem;
 import frc.robot.commands.auto.AutoDriveCommand;
 import frc.robot.commands.auto.AutoSequence;
 import frc.robot.commands.ClimberCommandMove;
-import frc.robot.commands.EmergencyClimberStop;
 import frc.robot.commands.ConveyorBeltCommandReverse;
 import frc.robot.commands.ConveyorBeltCommandToggle;
 import frc.robot.commands.DriveCommand;

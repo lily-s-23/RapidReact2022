@@ -36,7 +36,7 @@ public class IntakeCommandToggle extends InstantCommand {
       Robot.Intake.intakeRetract();
     } else if (onOff == 1) {
       onOff = 0;
-      Robot.Intake.intakeOff();
+      Robot.Intake.intakeInitialize();
     }
     //m_intake.intakeInitialize(0.5);
     //Robot.Intake.intakeSpin(-speed * onOff);
