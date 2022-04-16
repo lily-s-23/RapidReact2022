@@ -16,7 +16,7 @@ public class IntakeCommandToggle extends InstantCommand {
   /** Creates a new IntakeCommand. */
   private final IntakeSubsystem m_intake;
   private static int onOff = 0;
-  private static final double speed = 1.0;
+  private static final double speed = -1.0;
 
   public IntakeCommandToggle(IntakeSubsystem intake) {
     // Use addRequirements() here to declare subsystem dependencies.
@@ -27,7 +27,7 @@ public class IntakeCommandToggle extends InstantCommand {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    Robot.Intake.intakeSpin(-speed * onOff);
+    Robot.Intake.intakeSpin(-speed);
 
     if (onOff == 0) {
       onOff = 1;
@@ -36,7 +36,7 @@ public class IntakeCommandToggle extends InstantCommand {
       Robot.Intake.intakeRetract();
     } else if (onOff == 1) {
       onOff = 0;
-      Robot.Intake.intakeOff();
+      Robot.Intake.intakeOut();
     }
     //m_intake.intakeInitialize(0.5);
     //Robot.Intake.intakeSpin(-speed * onOff);

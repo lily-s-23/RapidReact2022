@@ -62,7 +62,7 @@ public class IntakeSubsystem extends SubsystemBase {
         intakeArm.set(Value.kReverse);
     }
 
-    public void intakeOff(){
+    public void intakeOut(){
         intakeArm.set(Value.kForward);
     }
 

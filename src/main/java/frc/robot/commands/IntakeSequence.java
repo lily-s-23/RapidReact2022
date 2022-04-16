@@ -17,6 +17,6 @@ public class IntakeSequence extends SequentialCommandGroup {
   public IntakeSequence() {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
-    addCommands(new IntakeCommandStart(Robot.Intake), new WaitCommand(0.1), new intakeCommandSpin());
+    addCommands(new IntakeCommandStart(Robot.Intake), new WaitCommand(0.1));
   }
 }

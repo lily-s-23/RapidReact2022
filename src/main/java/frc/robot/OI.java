@@ -95,14 +95,18 @@ public class OI {
     }*/
     driverAButton.whenPressed(new ClimberCommandMove(Robot.climber));
     
+
     // driverBButton.whenPressed(new IntakeCommandToggle(Robot.Intake));
     // driverBButton.whenReleased(new IntakeCommandStop(Robot.Intake));
     driverRbump.whenPressed(new IntakeCommandToggle(Robot.Intake));
     
+
     // driverXButton.whenPressed(new ConveyorBeltCommandForward(Robot.conveyor));
     // driverXButton.whenReleased(new ConveyorBeltCommandStop(Robot.conveyor));
     driverLbump.whenPressed(new ConveyorBeltCommandToggle(Robot.conveyor));
     
+    driverXButton.whenPressed(new intakeCommandSpin(Robot.Intake));
+    driverXButton.whenReleased(new IntakeCommandStop(Robot.Intake));
     //button that brings out intake
     //driverYButton.whenPressed(new IntakeCommandStart(Robot.Intake));
     
