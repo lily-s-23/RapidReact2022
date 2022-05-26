@@ -94,10 +94,10 @@ public class OI {
     
 
     operatorXButton.whenPressed(new intakeOut(Robot.Intake));
-    operatorXButton.whenReleased(new intakeIn(Robot.Intake));
+    operatorYButton.whenPressed(new intakeIn(Robot.Intake));
 
-    operatorLbump.whileHeld(new intakeCommandSpin(Robot.Intake));
-    operatorLbump.whenReleased(new IntakeCommandStop(Robot.Intake));
+    operatorLbump.whenPressed(new intakeCommandSpin(Robot.Intake));
+    operatorRbump.whenPressed(new IntakeCommandStop(Robot.Intake));
 
 
   }
